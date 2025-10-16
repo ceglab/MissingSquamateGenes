@@ -1,0 +1,4 @@
+x,y,pearson_r,pearson_p,spearman_rho,spearman_p
+AA identity,- |GC diff|,0.536225263667561,0.0,0.558977596425042,0.0
+AA identity,- mean LCR fraction,0.05662657020331213,5.122707398413983e-56,-0.01598364450836897,8.68341781177607e-06
+AA identity,- mean repeat fraction,0.22658221760466335,0.0,0.20377925949473405,0.0

@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<title>Ortholog Divergence Report</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body { font-family: system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,sans-serif; margin: 18px; }
+h1,h2,h3 { margin-top: 1em; }
+table { border-collapse: collapse; width: 100%; font-size: 13px; }
+th, td { border: 1px solid #e5e7eb; padding: 6px 8px; text-align: right; }
+th { background:#fafafa; position: sticky; top: 0; }
+td:first-child, th:first-child { text-align: left; }
+.badge { display:inline-block; padding:2px 8px; border-radius:999px; font-weight:600; }
+.badge.low { background:#e7f7ed; color:#056e2e; }
+.badge.intermediate { background:#fff5d6; color:#8a6100; }
+.badge.high { background:#ffe8e6; color:#9a1d0d; }
+.small { color:#666; font-size: 12px; }
+.figure { margin: 10px 0 16px 0; }
+code,pre { background:#f6f8fa; padding:2px 4px; border-radius:4px; }
+.container { max-width: 1240px; margin: 0 auto; }
+</style>
+</head><body><div class="container">
+<h1>Ortholog Divergence Report</h1>
+<p><b>Input:</b> STOML3.valid.longest.fa &nbsp;&middot;&nbsp; <b>N sequences:</b> 336 &nbsp;&middot;&nbsp; <b>Aligned length:</b> 1133 codons</p>
+<p><b>Reference:</b> Sciurus_carolinensis</p>
+
+<h2>Quick risk overview</h2>
+<ul>
+  <li>LOW: 0</li>
+  <li>INTERMEDIATE: 0</li>
+  <li>HIGH: 56280</li>
+</ul>
+
+<div class="figure"><img loading="lazy" src="heat_identity.png" alt="AA identity heatmap" style="max-width:100%"></div>
+<div class="figure"><img loading="lazy" src="heat_gap.png" alt="Gap heatmap" style="max-width:100%"></div>
+
+<h2>Composition & complexity per sequence</h2>
+<p class="small">Saved as <code>per_sequence_composition.csv</code>. High low-complexity or repeat content can reduce BLAST sensitivity due to soft masking.</p>
+<table>
+<thead><tr>
+<th>id</th><th>GC</th><th>GC skew</th><th>CpG dens.</th>
+<th>AA LCR frac</th><th>NT repeat frac</th><th>AA len</th><th>CDS len</th>
+</tr></thead><tbody>
+<tr><td>Sciurus_carolinensis</td><td>0.50379</td><td>0.00376</td><td>0.02085</td><td>0.1108</td><td>0.73958</td><td>352</td><td>1056</td></tr>
+<tr><td>Lynx_rufus</td><td>0.52806</td><td>-0.01952</td><td>0.03096</td><td>0.13746</td><td>0.69989</td><td>291</td><td>873</td></tr>
+<tr><td>Gymnogyps_californianus</td><td>0.49941</td><td>0.02358</td><td>0.02358</td><td>0.16961</td><td>0.71614</td><td>283</td><td>849</td></tr>
+<tr><td>Vombatus_ursinus</td><td>0.48339</td><td>-0.00948</td><td>0.01835</td><td>0.09278</td><td>0.68499</td><td>291</td><td>873</td></tr>
+<tr><td>Castor_canadensis</td><td>0.49474</td><td>0.03546</td><td>0.01933</td><td>0.16842</td><td>0.75614</td><td>190</td><td>570</td></tr>
+<tr><td>Ursus_americanus</td><td>0.53623</td><td>-0.0104</td><td>0.04129</td><td>0.13043</td><td>0.71014</td><td>299</td><td>897</td></tr>
+<tr><td>Pygoscelis_adeliae</td><td>0.4947</td><td>0.04762</td><td>0.02241</td><td>0.16608</td><td>0.71967</td><td>283</td><td>849</td></tr>
+<tr><td>Microcaecilia_unicolor</td><td>0.45433</td><td>0.05483</td><td>0.02494</td><td>0.06762</td><td>0.72479</td><td>281</td><td>843</td></tr>
+<tr><td>Melozone_crissalis</td><td>0.51308</td><td>0.0643</td><td>0.01253</td><td>0.12628</td><td>0.71445</td><td>293</td><td>879</td></tr>
+<tr><td>Lontra_canadensis</td><td>0.53608</td><td>-0.01709</td><td>0.03899</td><td>0.15464</td><td>0.70218</td><td>291</td><td>873</td></tr>
+<tr><td>Phascolarctos_cinereus</td><td>0.48391</td><td>-0.00713</td><td>0.01496</td><td>0.13793</td><td>0.7023</td><td>290</td><td>870</td></tr>
+<tr><td>Apodemus_sylvaticus</td><td>0.52331</td><td>0.02004</td><td>0.02917</td><td>0.09091</td><td>0.74592</td><td>286</td><td>858</td></tr>
+<tr><td>Mus_musculus</td><td>0.52265</td><td>0.01778</td><td>0.03488</td><td>0.09059</td><td>0.741</td><td>287</td><td>861</td></tr>
+<tr><td>Tyto_alba</td><td>0.49823</td><td>0.03546</td><td>0.02005</td><td>0.16608</td><td>0.68905</td><td>283</td><td>849</td></tr>
+<tr><td>Otolemur_garnettii</td><td>0.53952</td><td>0.01486</td><td>0.03899</td><td>0.15464</td><td>0.74914</td><td>291</td><td>873</td></tr>
+<tr><td>Macaca_fascicularis</td><td>0.49255</td><td>0.0093</td><td>0.02408</td><td>0.11684</td><td>0.73425</td><td>291</td><td>873</td></tr>
+<tr><td>Struthio_camelus</td><td>0.47585</td><td>0.05941</td><td>0.01887</td><td>0.17668</td><td>0.7126</td><td>283</td><td>849</td></tr>
+<tr><td>Falco_biarmicus</td><td>0.5</td><td>0.05828</td><td>0.03151</td><td>0.15734</td><td>0.75175</td><td>286</td><td>858</td></tr>
+<tr><td>Peromyscus_maniculatus_bairdii</td><td>0.52729</td><td>-0.01762</td><td>0.0314</td><td>0.10453</td><td>0.72706</td><td>287</td><td>861</td></tr>
+<tr><td>Ammospiza_caudacuta</td><td>0.51991</td><td>0.06783</td><td>0.01595</td><td>0.12628</td><td>0.70762</td><td>293</td><td>879</td></tr>
+<tr><td>Chionomys_nivalis</td><td>0.52149</td><td>-0.01559</td><td>0.03256</td><td>0.13937</td><td>0.75842</td><td>287</td><td>861</td></tr>
+<tr><td>Gopherus_flavomarginatus</td><td>0.47222</td><td>0.04348</td><td>0.01451</td><td>0.11232</td><td>0.6872</td><td>276</td><td>828</td></tr>
+<tr><td>Equus_caballus</td><td>0.52405</td><td>-0.0306</td><td>0.02618</td><td>0.09873</td><td>0.75865</td><td>395</td><td>1185</td></tr>
+<tr><td>Orycteropus_afer_afer</td><td>0.48556</td><td>-0.02703</td><td>0.02497</td><td>0.10236</td><td>0.75853</td><td>254</td><td>762</td></tr>
+<tr><td>Equus_quagga</td><td>0.52574</td><td>-0.02729</td><td>0.02618</td><td>0.09873</td><td>0.75865</td><td>395</td><td>1185</td></tr>
+<tr><td>Spea_bombifrons</td><td>0.4538</td><td>0.03608</td><td>0.02576</td><td>0.12632</td><td>0.72281</td><td>285</td><td>855</td></tr>
+<tr><td>Vulpes_lagopus</td><td>0.51736</td><td>0.00224</td><td>0.02897</td><td>0.13542</td><td>0.6875</td><td>288</td><td>864</td></tr>
+<tr><td>Perognathus_longimembris_pacificus</td><td>0.50114</td><td>0.03872</td><td>0.02514</td><td>0.09932</td><td>0.74772</td><td>292</td><td>876</td></tr>
+<tr><td>Corvus_brachyrhynchos</td><td>0.49941</td><td>0.08491</td><td>0.01533</td><td>0.07067</td><td>0.70082</td><td>283</td><td>849</td></tr>
+<tr><td>Capricornis_sumatraensis</td><td>0.54809</td><td>-0.00962</td><td>0.03562</td><td>0.10277</td><td>0.73781</td><td>253</td><td>759</td></tr>
+<tr><td>Mus_pahari</td><td>0.52381</td><td>0.01552</td><td>0.03488</td><td>0.09059</td><td>0.72474</td><td>287</td><td>861</td></tr>
+<tr><td>Passer_domesticus</td><td>0.49886</td><td>0.01979</td><td>0.0114</td><td>0.1549</td><td>0.7555</td><td>439</td><td>1317</td></tr>
+<tr><td>Marmota_flaviventris</td><td>0.50913</td><td>0.02242</td><td>0.02286</td><td>0.13356</td><td>0.76712</td><td>292</td><td>876</td></tr>
+<tr><td>Gorilla_gorilla_gorilla</td><td>0.4937</td><td>0.00696</td><td>0.02523</td><td>0.13058</td><td>0.74227</td><td>291</td><td>873</td></tr>
+<tr><td>Balaenoptera_ricei</td><td>0.52463</td><td>-0.00437</td><td>0.02752</td><td>0.09278</td><td>0.67468</td><td>291</td><td>873</td></tr>
+<tr><td>Mustela_putorius_furo</td><td>0.53333</td><td>0.02817</td><td>0.03477</td><td>0.12676</td><td>0.71737</td><td>355</td><td>1065</td></tr>
+<tr><td>Athene_cunicularia</td><td>0.4614</td><td>-0.01901</td><td>0.01933</td><td>0.06316</td><td>0.71053</td><td>190</td><td>570</td></tr>
+<tr><td>Pezoporus_occidentalis</td><td>0.48333</td><td>0.06897</td><td>0.01549</td><td>0.11071</td><td>0.69881</td><td>280</td><td>840</td></tr>
+<tr><td>Hyla_sarda</td><td>0.46645</td><td>-0.01624</td><td>0.02492</td><td>0.06169</td><td>0.77273</td><td>308</td><td>924</td></tr>
+<tr><td>Manis_pentadactyla</td><td>0.57961</td><td>-0.02372</td><td>0.04931</td><td>0.13058</td><td>0.70103</td><td>291</td><td>873</td></tr>
+<tr><td>Suncus_etruscus</td><td>0.50505</td><td>0.02769</td><td>0.01866</td><td>0.12587</td><td>0.7568</td><td>429</td><td>1287</td></tr>
+<tr><td>Panthera_tigris</td><td>0.53036</td><td>-0.00648</td><td>0.03211</td><td>0.13746</td><td>0.69301</td><td>291</td><td>873</td></tr>
+<tr><td>Hippopotamus_amphibius_kiboko</td><td>0.54321</td><td>-0.03535</td><td>0.03984</td><td>0.11111</td><td>0.72565</td><td>243</td><td>729</td></tr>
+<tr><td>Oryx_dammah</td><td>0.54677</td><td>-0.02169</td><td>0.03826</td><td>0.10277</td><td>0.73518</td><td>253</td><td>759</td></tr>
+<tr><td>Cuculus_canorus</td><td>0.48174</td><td>0.04156</td><td>0.01651</td><td>0.16961</td><td>0.68551</td><td>283</td><td>849</td></tr>
+<tr><td>Muntiacus_reevesi</td><td>0.54018</td><td>-0.01951</td><td>0.03694</td><td>0.10277</td><td>0.73913</td><td>253</td><td>759</td></tr>
+<tr><td>Dendropsophus_ebraccatus</td><td>0.48763</td><td>-0.01932</td><td>0.0283</td><td>0.06714</td><td>0.77267</td><td>283</td><td>849</td></tr>
+<tr><td>Tupaia_chinensis</td><td>0.4919</td><td>0.03704</td><td>0.02296</td><td>0.09109</td><td>0.72537</td><td>494</td><td>1482</td></tr>
+<tr><td>Dipodomys_ordii</td><td>0.5</td><td>0.01826</td><td>0.02171</td><td>0.09932</td><td>0.73516</td><td>292</td><td>876</td></tr>
+<tr><td>Callithrix_jacchus</td><td>0.50974</td><td>-0.01124</td><td>0.03211</td><td>0.13058</td><td>0.75029</td><td>291</td><td>873</td></tr>
+<tr><td>Tinamus_guttatus</td><td>0.49247</td><td>0.0131</td><td>0.02153</td><td>0.17419</td><td>0.68065</td><td>310</td><td>930</td></tr>
+<tr><td>Zalophus_californianus</td><td>0.52921</td><td>-0.00433</td><td>0.03555</td><td>0.13746</td><td>0.71478</td><td>291</td><td>873</td></tr>
+<tr><td>Monodelphis_domestica</td><td>0.45819</td><td>-0.015</td><td>0.01147</td><td>0.04811</td><td>0.73654</td><td>291</td><td>873</td></tr>
+<tr><td>Coturnix_japonica</td><td>0.48999</td><td>0.10577</td><td>0.01887</td><td>0.09894</td><td>0.75618</td><td>283</td><td>849</td></tr>
+<tr><td>Carlito_syrichta</td><td>0.50099</td><td>0.03543</td><td>0.02468</td><td>0.11834</td><td>0.73176</td><td>338</td><td>1014</td></tr>
+<tr><td>Neogale_vison</td><td>0.53608</td><td>-0.00855</td><td>0.03899</td><td>0.15464</td><td>0.68843</td><td>291</td><td>873</td></tr>
+<tr><td>Onychomys_torridus</td><td>0.52033</td><td>-0.02232</td><td>0.02674</td><td>0.09756</td><td>0.76887</td><td>287</td><td>861</td></tr>
+<tr><td>Dromaius_novaehollandiae</td><td>0.47468</td><td>0.05211</td><td>0.01533</td><td>0.16961</td><td>0.72203</td><td>283</td><td>849</td></tr>
+<tr><td>Cynocephalus_volans</td><td>0.51872</td><td>0.01408</td><td>0.02742</td><td>0.10685</td><td>0.73151</td><td>365</td><td>1095</td></tr>
+<tr><td>Mesocricetus_auratus</td><td>0.52098</td><td>-0.02461</td><td>0.03267</td><td>0.14336</td><td>0.73893</td><td>286</td><td>858</td></tr>
+<tr><td>Malaclemys_terrapin_pileata</td><td>0.46834</td><td>0.04082</td><td>0.01675</td><td>0.11111</td><td>0.70729</td><td>279</td><td>837</td></tr>
+<tr><td>Dromiciops_gliroides</td><td>0.47241</td><td>0.04623</td><td>0.01611</td><td>0.04828</td><td>0.69195</td><td>290</td><td>870</td></tr>
+<tr><td>Urocitellus_parryii</td><td>0.50457</td><td>0.00905</td><td>0.024</td><td>0.13356</td><td>0.78995</td><td>292</td><td>876</td></tr>
+<tr><td>Falco_rusticolus</td><td>0.51355</td><td>0.07339</td><td>0.03184</td><td>0.15901</td><td>0.73616</td><td>283</td><td>849</td></tr>
+<tr><td>Pezoporus_flaviventris</td><td>0.48292</td><td>0.0439</td><td>0.01651</td><td>0.15548</td><td>0.72085</td><td>283</td><td>849</td></tr>
+<tr><td>Indicator_indicator</td><td>0.4841</td><td>0.05596</td><td>0.01769</td><td>0.16961</td><td>0.71967</td><td>283</td><td>849</td></tr>
+<tr><td>Marmota_marmota_marmota</td><td>0.50913</td><td>0.02242</td><td>0.02286</td><td>0.09247</td><td>0.76712</td><td>292</td><td>876</td></tr>
+<tr><td>Phoca_vitulina</td><td>0.53475</td><td>0.0</td><td>0.03656</td><td>0.13781</td><td>0.69022</td><td>283</td><td>849</td></tr>
+<tr><td>Acomys_russatus</td><td>0.5297</td><td>-0.02059</td><td>0.03398</td><td>0.12727</td><td>0.76606</td><td>275</td><td>825</td></tr>
+<tr><td>Equus_asinus</td><td>0.52321</td><td>-0.02903</td><td>0.02534</td><td>0.09873</td><td>0.75865</td><td>395</td><td>1185</td></tr>
+<tr><td>Trichechus_manatus_latirostris</td><td>0.53723</td><td>0.01066</td><td>0.04243</td><td>0.15464</td><td>0.74341</td><td>291</td><td>873</td></tr>
+<tr><td>Pelecanus_crispus</td><td>0.49117</td><td>0.04556</td><td>0.02476</td><td>0.15548</td><td>0.7126</td><td>283</td><td>849</td></tr>
+<tr><td>Neofelis_nebulosa</td><td>0.53036</td><td>-0.01512</td><td>0.03326</td><td>0.13746</td><td>0.69759</td><td>291</td><td>873</td></tr>
+<tr><td>Centrocercus_urophasianus</td><td>0.47939</td><td>0.07125</td><td>0.02005</td><td>0.13074</td><td>0.76914</td><td>283</td><td>849</td></tr>
+<tr><td>Calypte_anna</td><td>0.48881</td><td>0.02651</td><td>0.01297</td><td>0.15901</td><td>0.7232</td><td>283</td><td>849</td></tr>
+<tr><td>Arvicola_amphibius</td><td>0.53542</td><td>-0.01518</td><td>0.03953</td><td>0.13937</td><td>0.73984</td><td>287</td><td>861</td></tr>
+<tr><td>Camelus_ferus</td><td>0.5514</td><td>-0.01695</td><td>0.04262</td><td>0.08411</td><td>0.72274</td><td>321</td><td>963</td></tr>
+<tr><td>Ochotona_princeps</td><td>0.5567</td><td>0.02881</td><td>0.04931</td><td>0.05155</td><td>0.74112</td><td>291</td><td>873</td></tr>
+<tr><td>Rattus_rattus</td><td>0.52797</td><td>0.01104</td><td>0.03734</td><td>0.14336</td><td>0.7028</td><td>286</td><td>858</td></tr>
+<tr><td>Oenanthe_melanoleuca</td><td>0.51943</td><td>0.04308</td><td>0.01769</td><td>0.11307</td><td>0.68551</td><td>283</td><td>849</td></tr>
+<tr><td>Bos_taurus</td><td>0.53723</td><td>-0.00213</td><td>0.03784</td><td>0.08935</td><td>0.69989</td><td>291</td><td>873</td></tr>
+<tr><td>Choloepus_didactylus</td><td>0.63116</td><td>-0.0127</td><td>0.07569</td><td>0.13402</td><td>0.74112</td><td>291</td><td>873</td></tr>
+<tr><td>Pongo_abelii</td><td>0.48454</td><td>0.00236</td><td>0.0172</td><td>0.13058</td><td>0.7606</td><td>291</td><td>873</td></tr>
+<tr><td>Pongo_pygmaeus</td><td>0.48568</td><td>0.00472</td><td>0.0195</td><td>0.13058</td><td>0.7606</td><td>291</td><td>873</td></tr>
+<tr><td>Nannospalax_galili</td><td>0.5122</td><td>-0.00227</td><td>0.01977</td><td>0.09408</td><td>0.7712</td><td>287</td><td>861</td></tr>
+<tr><td>Pleurodeles_waltl</td><td>0.46172</td><td>0.04082</td><td>0.03066</td><td>0.11307</td><td>0.72556</td><td>283</td><td>849</td></tr>
+<tr><td>Moschus_berezovskii</td><td>0.54181</td><td>0.00211</td><td>0.03555</td><td>0.08935</td><td>0.70218</td><td>291</td><td>873</td></tr>
+<tr><td>Acinonyx_jubatus</td><td>0.52806</td><td>-0.01085</td><td>0.03096</td><td>0.13746</td><td>0.70447</td><td>291</td><td>873</td></tr>
+<tr><td>Petaurus_breviceps_papuanus</td><td>0.47038</td><td>-0.01728</td><td>0.01628</td><td>0.09408</td><td>0.70732</td><td>287</td><td>861</td></tr>
+<tr><td>Motacilla_alba_alba</td><td>0.5159</td><td>0.06393</td><td>0.02476</td><td>0.12721</td><td>0.72203</td><td>283</td><td>849</td></tr>
+<tr><td>Cercocebus_atys</td><td>0.45603</td><td>0.0</td><td>0.01638</td><td>0.21779</td><td>0.76585</td><td>326</td><td>978</td></tr>
+<tr><td>Manis_javanica</td><td>0.57388</td><td>-0.02595</td><td>0.04931</td><td>0.13058</td><td>0.69989</td><td>291</td><td>873</td></tr>
+<tr><td>Phaenicophaeus_curvirostris</td><td>0.49352</td><td>0.0358</td><td>0.02476</td><td>0.12367</td><td>0.69494</td><td>283</td><td>849</td></tr>
+<tr><td>Falco_peregrinus</td><td>0.5</td><td>0.06294</td><td>0.03151</td><td>0.15734</td><td>0.7634</td><td>286</td><td>858</td></tr>
+<tr><td>Grus_americana</td><td>0.50059</td><td>0.06353</td><td>0.03538</td><td>0.16608</td><td>0.71378</td><td>283</td><td>849</td></tr>
+<tr><td>Mus_caroli</td><td>0.52381</td><td>0.03326</td><td>0.03256</td><td>0.09059</td><td>0.73519</td><td>287</td><td>861</td></tr>
+<tr><td>Panthera_pardus</td><td>0.52692</td><td>-0.0087</td><td>0.03211</td><td>0.13746</td><td>0.70905</td><td>291</td><td>873</td></tr>
+<tr><td>Pteropus_vampyrus</td><td>0.46277</td><td>-0.0099</td><td>0.01261</td><td>0.13402</td><td>0.72852</td><td>291</td><td>873</td></tr>
+<tr><td>Homo_sapiens</td><td>0.49485</td><td>0.00926</td><td>0.02638</td><td>0.13058</td><td>0.73769</td><td>291</td><td>873</td></tr>
+<tr><td>Piliocolobus_tephrosceles</td><td>0.5</td><td>0.01754</td><td>0.02384</td><td>0.09774</td><td>0.76817</td><td>266</td><td>798</td></tr>
+<tr><td>Ranitomeya_imitator</td><td>0.47849</td><td>0.01573</td><td>0.02799</td><td>0.06129</td><td>0.74624</td><td>310</td><td>930</td></tr>
+<tr><td>Bubalus_bubalis</td><td>0.54066</td><td>0.00424</td><td>0.03555</td><td>0.08935</td><td>0.7079</td><td>291</td><td>873</td></tr>
+<tr><td>Ailuropoda_melanoleuca</td><td>0.52719</td><td>-0.0183</td><td>0.03775</td><td>0.10263</td><td>0.75263</td><td>380</td><td>1140</td></tr>
+<tr><td>Sturnus_vulgaris</td><td>0.48814</td><td>0.03704</td><td>0.02376</td><td>0.15593</td><td>0.73898</td><td>295</td><td>885</td></tr>
+<tr><td>Falco_cherrug</td><td>0.49883</td><td>0.06075</td><td>0.03034</td><td>0.15734</td><td>0.75175</td><td>286</td><td>858</td></tr>
+<tr><td>Catharus_ustulatus</td><td>0.51632</td><td>0.02682</td><td>0.02079</td><td>0.1365</td><td>0.74876</td><td>337</td><td>1011</td></tr>
+<tr><td>Erinaceus_europaeus</td><td>0.51775</td><td>-0.05752</td><td>0.02523</td><td>0.13402</td><td>0.71936</td><td>291</td><td>873</td></tr>
+<tr><td>Capra_hircus</td><td>0.54066</td><td>0.00847</td><td>0.03211</td><td>0.08935</td><td>0.71936</td><td>291</td><td>873</td></tr>
+<tr><td>Cygnus_olor</td><td>0.48999</td><td>0.09615</td><td>0.02241</td><td>0.19435</td><td>0.7126</td><td>283</td><td>849</td></tr>
+<tr><td>Lynx_canadensis</td><td>0.52806</td><td>-0.01952</td><td>0.03211</td><td>0.13746</td><td>0.69989</td><td>291</td><td>873</td></tr>
+<tr><td>Pelobates_fuscus</td><td>0.43897</td><td>0.08021</td><td>0.02703</td><td>0.13028</td><td>0.75</td><td>284</td><td>852</td></tr>
+<tr><td>Patagioenas_fasciata</td><td>0.50412</td><td>0.06075</td><td>0.02594</td><td>0.16961</td><td>0.71025</td><td>283</td><td>849</td></tr>
+<tr><td>Nipponia_nippon</td><td>0.49117</td><td>0.06954</td><td>0.02005</td><td>0.12367</td><td>0.69965</td><td>283</td><td>849</td></tr>
+<tr><td>Mirounga_angustirostris</td><td>0.5315</td><td>0.00431</td><td>0.03555</td><td>0.13402</td><td>0.6701</td><td>291</td><td>873</td></tr>
+<tr><td>Nothoprocta_perdicaria</td><td>0.49888</td><td>0.03587</td><td>0.02688</td><td>0.12081</td><td>0.74497</td><td>298</td><td>894</td></tr>
+<tr><td>Halichoerus_grypus</td><td>0.53218</td><td>-0.0108</td><td>0.03567</td><td>0.13448</td><td>0.70115</td><td>290</td><td>870</td></tr>
+<tr><td>Vulpes_vulpes</td><td>0.5189</td><td>0.01987</td><td>0.02867</td><td>0.13402</td><td>0.68729</td><td>291</td><td>873</td></tr>
+<tr><td>Microtus_ochrogaster</td><td>0.52729</td><td>-0.00881</td><td>0.03372</td><td>0.13937</td><td>0.74797</td><td>287</td><td>861</td></tr>
+<tr><td>Gracilinanus_agilis</td><td>0.45255</td><td>-0.03325</td><td>0.01275</td><td>0.04861</td><td>0.7581</td><td>288</td><td>864</td></tr>
+<tr><td>Phacochoerus_africanus</td><td>0.54052</td><td>-0.00511</td><td>0.03779</td><td>0.07459</td><td>0.69245</td><td>362</td><td>1086</td></tr>
+<tr><td>Cinclus_cinclus</td><td>0.50177</td><td>0.05164</td><td>0.01533</td><td>0.11307</td><td>0.67138</td><td>283</td><td>849</td></tr>
+<tr><td>Anas_acuta</td><td>0.49588</td><td>0.06888</td><td>0.02358</td><td>0.10954</td><td>0.69258</td><td>283</td><td>849</td></tr>
+<tr><td>Meleagris_gallopavo</td><td>0.4735</td><td>0.10448</td><td>0.01769</td><td>0.08834</td><td>0.77856</td><td>283</td><td>849</td></tr>
+<tr><td>Apteryx_mantelli</td><td>0.48057</td><td>0.05882</td><td>0.02005</td><td>0.16961</td><td>0.70554</td><td>283</td><td>849</td></tr>
+<tr><td>Oryctolagus_cuniculus</td><td>0.52595</td><td>0.02632</td><td>0.03118</td><td>0.08997</td><td>0.72434</td><td>289</td><td>867</td></tr>
+<tr><td>Columba_livia</td><td>0.49699</td><td>-0.00202</td><td>0.02211</td><td>0.13554</td><td>0.68072</td><td>332</td><td>996</td></tr>
+<tr><td>Tachyglossus_aculeatus</td><td>0.61033</td><td>-0.03462</td><td>0.07168</td><td>0.09507</td><td>0.69014</td><td>284</td><td>852</td></tr>
+<tr><td>Phaethon_lepturus</td><td>0.48174</td><td>0.0709</td><td>0.01887</td><td>0.10954</td><td>0.702</td><td>283</td><td>849</td></tr>
+<tr><td>Prinia_subflava</td><td>0.68404</td><td>-0.01905</td><td>0.10543</td><td>0.26384</td><td>0.68078</td><td>307</td><td>921</td></tr>
+<tr><td>Hyperolius_riggenbachi</td><td>0.50583</td><td>-0.01843</td><td>0.03501</td><td>0.11888</td><td>0.74126</td><td>286</td><td>858</td></tr>
+<tr><td>Trachypithecus_francoisi</td><td>0.49714</td><td>0.01382</td><td>0.02408</td><td>0.13058</td><td>0.73883</td><td>291</td><td>873</td></tr>
+<tr><td>Corvus_hawaiiensis</td><td>0.49823</td><td>0.08747</td><td>0.01533</td><td>0.07067</td><td>0.70789</td><td>283</td><td>849</td></tr>
+<tr><td>Camelus_dromedarius</td><td>0.54374</td><td>0.00435</td><td>0.03787</td><td>0.09574</td><td>0.71513</td><td>282</td><td>846</td></tr>
+<tr><td>Melospiza_georgiana</td><td>0.52105</td><td>0.06114</td><td>0.01822</td><td>0.11945</td><td>0.72582</td><td>293</td><td>879</td></tr>
+<tr><td>Cygnus_atratus</td><td>0.49117</td><td>0.08393</td><td>0.02476</td><td>0.19435</td><td>0.70671</td><td>283</td><td>849</td></tr>
+<tr><td>Arvicanthis_niloticus</td><td>0.52331</td><td>0.00223</td><td>0.03501</td><td>0.13287</td><td>0.74476</td><td>286</td><td>858</td></tr>
+<tr><td>Talpa_occidentalis</td><td>0.5063</td><td>-0.01357</td><td>0.03096</td><td>0.08935</td><td>0.70447</td><td>291</td><td>873</td></tr>
+<tr><td>Phasianus_colchicus</td><td>0.48999</td><td>0.07692</td><td>0.02123</td><td>0.13781</td><td>0.76914</td><td>283</td><td>849</td></tr>
+<tr><td>Gavia_stellata</td><td>0.49458</td><td>0.05109</td><td>0.02771</td><td>0.12635</td><td>0.6787</td><td>277</td><td>831</td></tr>
+<tr><td>Nycticebus_coucang</td><td>0.52806</td><td>0.00651</td><td>0.03326</td><td>0.15464</td><td>0.72394</td><td>291</td><td>873</td></tr>
+<tr><td>Nyctibius_grandis</td><td>0.49588</td><td>0.05463</td><td>0.02476</td><td>0.11661</td><td>0.72203</td><td>283</td><td>849</td></tr>
+<tr><td>Nestor_notabilis</td><td>0.4841</td><td>0.06083</td><td>0.01769</td><td>0.05654</td><td>0.7126</td><td>283</td><td>849</td></tr>
+<tr><td>Saimiri_boliviensis</td><td>0.49255</td><td>0.03721</td><td>0.01835</td><td>0.13058</td><td>0.748</td><td>291</td><td>873</td></tr>
+<tr><td>Aptenodytes_forsteri</td><td>0.50177</td><td>0.03756</td><td>0.02358</td><td>0.12367</td><td>0.68669</td><td>283</td><td>849</td></tr>
+<tr><td>Rhinopithecus_roxellana</td><td>0.49161</td><td>0.01951</td><td>0.02521</td><td>0.09353</td><td>0.7458</td><td>278</td><td>834</td></tr>
+<tr><td>Ochotona_curzoniae</td><td>0.56586</td><td>0.0081</td><td>0.05275</td><td>0.05155</td><td>0.71707</td><td>291</td><td>873</td></tr>
+<tr><td>Alligator_sinensis</td><td>0.44409</td><td>0.02663</td><td>0.01507</td><td>0.14516</td><td>0.70538</td><td>310</td><td>930</td></tr>
+<tr><td>Condylura_cristata</td><td>0.50057</td><td>-0.02975</td><td>0.02523</td><td>0.13402</td><td>0.69759</td><td>291</td><td>873</td></tr>
+<tr><td>Rousettus_aegyptiacus</td><td>0.46048</td><td>-0.00498</td><td>0.01376</td><td>0.13402</td><td>0.69989</td><td>291</td><td>873</td></tr>
+<tr><td>Ficedula_albicollis</td><td>0.51237</td><td>0.08046</td><td>0.01887</td><td>0.11307</td><td>0.68787</td><td>283</td><td>849</td></tr>
+<tr><td>Alligator_mississippiensis</td><td>0.45139</td><td>0.07179</td><td>0.01854</td><td>0.15625</td><td>0.72917</td><td>288</td><td>864</td></tr>
+<tr><td>Antechinus_flavipes</td><td>0.45747</td><td>0.01005</td><td>0.01151</td><td>0.04828</td><td>0.67816</td><td>290</td><td>870</td></tr>
+<tr><td>Lagopus_muta</td><td>0.48292</td><td>0.0878</td><td>0.02123</td><td>0.13074</td><td>0.77856</td><td>283</td><td>849</td></tr>
+<tr><td>Lemur_catta</td><td>0.52005</td><td>0.0</td><td>0.03899</td><td>0.09278</td><td>0.7457</td><td>291</td><td>873</td></tr>
+<tr><td>Haliaeetus_albicilla</td><td>0.473</td><td>0.00744</td><td>0.00705</td><td>0.14437</td><td>0.67488</td><td>284</td><td>852</td></tr>
+<tr><td>Panthera_onca</td><td>0.52921</td><td>-0.00866</td><td>0.03211</td><td>0.13746</td><td>0.70218</td><td>291</td><td>873</td></tr>
+<tr><td>Harpia_harpyja</td><td>0.47552</td><td>0.01961</td><td>0.0105</td><td>0.13636</td><td>0.72028</td><td>286</td><td>858</td></tr>
+<tr><td>Ammospiza_nelsoni</td><td>0.51991</td><td>0.07221</td><td>0.01708</td><td>0.12628</td><td>0.7099</td><td>293</td><td>879</td></tr>
+<tr><td>Passer_montanus</td><td>0.5159</td><td>0.06849</td><td>0.01769</td><td>0.13074</td><td>0.73145</td><td>283</td><td>849</td></tr>
+<tr><td>Lutra_lutra</td><td>0.53494</td><td>-0.01071</td><td>0.03899</td><td>0.15464</td><td>0.67698</td><td>291</td><td>873</td></tr>
+<tr><td>Charadrius_vociferus</td><td>0.4947</td><td>0.05238</td><td>0.01887</td><td>0.16254</td><td>0.66549</td><td>283</td><td>849</td></tr>
+<tr><td>Mastomys_coucha</td><td>0.5122</td><td>0.01587</td><td>0.03372</td><td>0.1324</td><td>0.73055</td><td>287</td><td>861</td></tr>
+<tr><td>Jaculus_jaculus</td><td>0.5482</td><td>0.00847</td><td>0.03721</td><td>0.10801</td><td>0.72938</td><td>287</td><td>861</td></tr>
+<tr><td>Crocodylus_porosus</td><td>0.44718</td><td>0.06562</td><td>0.01528</td><td>0.2007</td><td>0.72066</td><td>284</td><td>852</td></tr>
+<tr><td>Odocoileus_virginianus</td><td>0.53036</td><td>0.00216</td><td>0.02867</td><td>0.08935</td><td>0.71592</td><td>291</td><td>873</td></tr>
+<tr><td>Chlorocebus_sabaeus</td><td>0.49828</td><td>0.01609</td><td>0.02523</td><td>0.15464</td><td>0.75029</td><td>291</td><td>873</td></tr>
+<tr><td>Rhea_pennata</td><td>0.46172</td><td>0.05612</td><td>0.01651</td><td>0.16608</td><td>0.73616</td><td>283</td><td>849</td></tr>
+<tr><td>Panthera_leo</td><td>0.52692</td><td>-0.0087</td><td>0.03211</td><td>0.13746</td><td>0.69989</td><td>291</td><td>873</td></tr>
+<tr><td>Dipodomys_merriami</td><td>0.49191</td><td>0.00877</td><td>0.02376</td><td>0.09385</td><td>0.73139</td><td>309</td><td>927</td></tr>
+<tr><td>Loxodonta_africana</td><td>0.51647</td><td>-0.0102</td><td>0.0277</td><td>0.10672</td><td>0.78788</td><td>253</td><td>759</td></tr>
+<tr><td>Rattus_norvegicus</td><td>0.52336</td><td>-0.17857</td><td>0.025</td><td>0.4486</td><td>0.72586</td><td>107</td><td>321</td></tr>
+<tr><td>Budorcas_taxicolor</td><td>0.54941</td><td>-0.01199</td><td>0.03826</td><td>0.10277</td><td>0.74045</td><td>253</td><td>759</td></tr>
+<tr><td>Trachemys_scripta_elegans</td><td>0.46476</td><td>0.03856</td><td>0.01675</td><td>0.0681</td><td>0.71207</td><td>279</td><td>837</td></tr>
+<tr><td>Prionailurus_bengalensis</td><td>0.52806</td><td>-0.01952</td><td>0.03096</td><td>0.13746</td><td>0.69989</td><td>291</td><td>873</td></tr>
+<tr><td>Phocoena_phocoena</td><td>0.53772</td><td>-0.01531</td><td>0.03846</td><td>0.107</td><td>0.70645</td><td>243</td><td>729</td></tr>
+<tr><td>Bison_bison_bison</td><td>0.53608</td><td>0.0</td><td>0.0367</td><td>0.08935</td><td>0.71134</td><td>291</td><td>873</td></tr>
+<tr><td>Neopsephotus_bourkii</td><td>0.49344</td><td>0.04255</td><td>0.01053</td><td>0.0</td><td>0.7769</td><td>127</td><td>381</td></tr>
+<tr><td>Sylvia_atricapilla</td><td>0.50755</td><td>0.07551</td><td>0.01512</td><td>0.15679</td><td>0.70151</td><td>287</td><td>861</td></tr>
+<tr><td>Bubalus_kerabau</td><td>0.54545</td><td>-0.02415</td><td>0.03958</td><td>0.10277</td><td>0.74308</td><td>253</td><td>759</td></tr>
+<tr><td>Marmota_monax</td><td>0.50685</td><td>0.03153</td><td>0.02171</td><td>0.13356</td><td>0.76941</td><td>292</td><td>876</td></tr>
+<tr><td>Geotrypetes_seraphini</td><td>0.43143</td><td>0.07579</td><td>0.02218</td><td>0.06013</td><td>0.74895</td><td>316</td><td>948</td></tr>
+<tr><td>Sorex_fumeus</td><td>0.52348</td><td>-0.00656</td><td>0.0344</td><td>0.09278</td><td>0.78465</td><td>291</td><td>873</td></tr>
+<tr><td>Aphelocoma_coerulescens</td><td>0.4947</td><td>0.07619</td><td>0.01297</td><td>0.07067</td><td>0.71967</td><td>283</td><td>849</td></tr>
+<tr><td>Propithecus_coquereli</td><td>0.52119</td><td>0.0022</td><td>0.04358</td><td>0.13402</td><td>0.72967</td><td>291</td><td>873</td></tr>
+<tr><td>Trichosurus_vulpecula</td><td>0.47222</td><td>-0.01471</td><td>0.01738</td><td>0.09375</td><td>0.71875</td><td>288</td><td>864</td></tr>
+<tr><td>Dama_dama</td><td>0.54018</td><td>-0.02439</td><td>0.03562</td><td>0.10277</td><td>0.72332</td><td>253</td><td>759</td></tr>
+<tr><td>Panthera_uncia</td><td>0.53036</td><td>-0.0108</td><td>0.03096</td><td>0.09622</td><td>0.70676</td><td>291</td><td>873</td></tr>
+<tr><td>Microcebus_murinus</td><td>0.5227</td><td>0.01695</td><td>0.03769</td><td>0.12625</td><td>0.72868</td><td>301</td><td>903</td></tr>
+<tr><td>Cervus_canadensis</td><td>0.53265</td><td>0.00645</td><td>0.03326</td><td>0.08935</td><td>0.70447</td><td>291</td><td>873</td></tr>
+<tr><td>Fulmarus_glacialis</td><td>0.48881</td><td>0.05542</td><td>0.02594</td><td>0.12367</td><td>0.70082</td><td>283</td><td>849</td></tr>
+<tr><td>Prionailurus_viverrinus</td><td>0.52692</td><td>-0.01739</td><td>0.02982</td><td>0.13746</td><td>0.69989</td><td>291</td><td>873</td></tr>
+<tr><td>Meriones_unguiculatus</td><td>0.52381</td><td>0.00222</td><td>0.03372</td><td>0.09408</td><td>0.74797</td><td>287</td><td>861</td></tr>
+<tr><td>Corvus_kubaryi</td><td>0.4947</td><td>0.07619</td><td>0.01179</td><td>0.07067</td><td>0.70318</td><td>283</td><td>849</td></tr>
+<tr><td>Lagopus_leucura</td><td>0.47821</td><td>0.08374</td><td>0.01769</td><td>0.08834</td><td>0.76914</td><td>283</td><td>849</td></tr>
+<tr><td>Corvus_cornix_cornix</td><td>0.49941</td><td>0.08491</td><td>0.01533</td><td>0.07067</td><td>0.71731</td><td>283</td><td>849</td></tr>
+<tr><td>Dipodomys_spectabilis</td><td>0.49299</td><td>0.01094</td><td>0.02376</td><td>0.09385</td><td>0.73355</td><td>309</td><td>927</td></tr>
+<tr><td>Oxyura_jamaicensis</td><td>0.50177</td><td>0.05634</td><td>0.03066</td><td>0.17314</td><td>0.72792</td><td>283</td><td>849</td></tr>
+<tr><td>Xenopus_tropicalis</td><td>0.48292</td><td>0.03415</td><td>0.02948</td><td>0.08481</td><td>0.75736</td><td>283</td><td>849</td></tr>
+<tr><td>Aotus_nancymaae</td><td>0.49828</td><td>0.02529</td><td>0.0195</td><td>0.13058</td><td>0.74341</td><td>291</td><td>873</td></tr>
+<tr><td>Canis_lupus_dingo</td><td>0.51775</td><td>0.02212</td><td>0.02867</td><td>0.13402</td><td>0.69187</td><td>291</td><td>873</td></tr>
+<tr><td>Dryobates_pubescens</td><td>0.47939</td><td>0.0516</td><td>0.00943</td><td>0.16961</td><td>0.7126</td><td>283</td><td>849</td></tr>
+<tr><td>Bos_indicus_x_Bos_taurus</td><td>0.53723</td><td>-0.00213</td><td>0.03784</td><td>0.08935</td><td>0.69989</td><td>291</td><td>873</td></tr>
+<tr><td>Theropithecus_gelada</td><td>0.49485</td><td>0.00463</td><td>0.02179</td><td>0.15464</td><td>0.72967</td><td>291</td><td>873</td></tr>
+<tr><td>Anas_platyrhynchos</td><td>0.48849</td><td>0.02869</td><td>0.02204</td><td>0.08108</td><td>0.68569</td><td>333</td><td>999</td></tr>
+<tr><td>Chamaea_fasciata</td><td>0.49709</td><td>0.08382</td><td>0.01067</td><td>0.125</td><td>0.74419</td><td>344</td><td>1032</td></tr>
+<tr><td>Serinus_canaria</td><td>0.51119</td><td>0.08756</td><td>0.01533</td><td>0.12014</td><td>0.7232</td><td>283</td><td>849</td></tr>
+<tr><td>Odobenus_rosmarus_divergens</td><td>0.52463</td><td>0.00437</td><td>0.03211</td><td>0.13402</td><td>0.70905</td><td>291</td><td>873</td></tr>
+<tr><td>Hyaena_hyaena</td><td>0.51694</td><td>-0.02326</td><td>0.02626</td><td>0.08852</td><td>0.7388</td><td>305</td><td>915</td></tr>
+<tr><td>Camelus_bactrianus</td><td>0.53952</td><td>0.00212</td><td>0.03555</td><td>0.09278</td><td>0.71019</td><td>291</td><td>873</td></tr>
+<tr><td>Macaca_mulatta</td><td>0.49026</td><td>0.01402</td><td>0.02179</td><td>0.15808</td><td>0.73196</td><td>291</td><td>873</td></tr>
+<tr><td>Pteropus_giganteus</td><td>0.46277</td><td>-0.0099</td><td>0.01261</td><td>0.13402</td><td>0.72852</td><td>291</td><td>873</td></tr>
+<tr><td>Balearica_regulorum_gibbericeps</td><td>0.4947</td><td>0.05238</td><td>0.03066</td><td>0.16608</td><td>0.73027</td><td>283</td><td>849</td></tr>
+<tr><td>Melanerpes_formicivorus</td><td>0.48645</td><td>0.06053</td><td>0.01297</td><td>0.16961</td><td>0.72203</td><td>283</td><td>849</td></tr>
+<tr><td>Ambystoma_mexicanum</td><td>0.48528</td><td>0.04854</td><td>0.0342</td><td>0.10954</td><td>0.70436</td><td>283</td><td>849</td></tr>
+<tr><td>Felis_catus</td><td>0.52921</td><td>-0.02165</td><td>0.03096</td><td>0.13746</td><td>0.6953</td><td>291</td><td>873</td></tr>
+<tr><td>Eumetopias_jubatus</td><td>0.52936</td><td>-0.02121</td><td>0.03457</td><td>0.10363</td><td>0.72021</td><td>386</td><td>1158</td></tr>
+<tr><td>Chrysemys_picta_bellii</td><td>0.46953</td><td>0.03817</td><td>0.01914</td><td>0.11111</td><td>0.71685</td><td>279</td><td>837</td></tr>
+<tr><td>Chrysochloris_asiatica</td><td>0.48748</td><td>-0.04865</td><td>0.02375</td><td>0.10277</td><td>0.80369</td><td>253</td><td>759</td></tr>
+<tr><td>Rana_temporaria</td><td>0.46416</td><td>0.01961</td><td>0.02506</td><td>0.08191</td><td>0.75654</td><td>293</td><td>879</td></tr>
+<tr><td>Eleutherodactylus_coqui</td><td>0.46939</td><td>0.01449</td><td>0.02384</td><td>0.06463</td><td>0.72789</td><td>294</td><td>882</td></tr>
+<tr><td>Pogoniulus_pusillus</td><td>0.47281</td><td>0.05</td><td>0.01183</td><td>0.13121</td><td>0.71986</td><td>282</td><td>846</td></tr>
+<tr><td>Chinchilla_lanigera</td><td>0.49485</td><td>0.03704</td><td>0.02523</td><td>0.13402</td><td>0.7583</td><td>291</td><td>873</td></tr>
+<tr><td>Mustela_erminea</td><td>0.53494</td><td>-0.00214</td><td>0.0367</td><td>0.15464</td><td>0.68385</td><td>291</td><td>873</td></tr>
+<tr><td>Emydura_macquarii_macquarii</td><td>0.45761</td><td>0.0203</td><td>0.0186</td><td>0.09059</td><td>0.73519</td><td>287</td><td>861</td></tr>
+<tr><td>Sarcophilus_harrisii</td><td>0.46092</td><td>0.00249</td><td>0.01036</td><td>0.04828</td><td>0.7023</td><td>290</td><td>870</td></tr>
+<tr><td>Mirounga_leonina</td><td>0.52607</td><td>0.02301</td><td>0.03355</td><td>0.10894</td><td>0.70391</td><td>358</td><td>1074</td></tr>
+<tr><td>Ictidomys_tridecemlineatus</td><td>0.50799</td><td>0.00674</td><td>0.024</td><td>0.13356</td><td>0.78995</td><td>292</td><td>876</td></tr>
+<tr><td>Opisthocomus_hoazin</td><td>0.51119</td><td>0.05991</td><td>0.0342</td><td>0.13428</td><td>0.68433</td><td>283</td><td>849</td></tr>
+<tr><td>Chroicocephalus_ridibundus</td><td>0.49474</td><td>0.07329</td><td>0.02693</td><td>0.15789</td><td>0.68889</td><td>285</td><td>855</td></tr>
+<tr><td>Dermochelys_coriacea</td><td>0.46237</td><td>0.03876</td><td>0.01555</td><td>0.08602</td><td>0.70251</td><td>279</td><td>837</td></tr>
+<tr><td>Peromyscus_californicus_insignis</td><td>0.53426</td><td>-0.01739</td><td>0.0314</td><td>0.10453</td><td>0.74448</td><td>287</td><td>861</td></tr>
+<tr><td>Elephantulus_edwardii</td><td>0.54868</td><td>0.00209</td><td>0.04358</td><td>0.09278</td><td>0.72279</td><td>291</td><td>873</td></tr>
+<tr><td>Bos_mutus</td><td>0.54066</td><td>0.0</td><td>0.03899</td><td>0.08935</td><td>0.71363</td><td>291</td><td>873</td></tr>
+<tr><td>Lagenorhynchus_albirostris</td><td>0.52669</td><td>0.0045</td><td>0.02613</td><td>0.08541</td><td>0.68683</td><td>281</td><td>843</td></tr>
+<tr><td>Chelonia_mydas</td><td>0.46356</td><td>0.06186</td><td>0.01675</td><td>0.08602</td><td>0.70251</td><td>279</td><td>837</td></tr>
+<tr><td>Neomonachus_schauinslandi</td><td>0.52607</td><td>0.02301</td><td>0.03448</td><td>0.10894</td><td>0.7067</td><td>358</td><td>1074</td></tr>
+<tr><td>Macaca_thibetana_thibetana</td><td>0.49141</td><td>0.01166</td><td>0.02179</td><td>0.15808</td><td>0.73883</td><td>291</td><td>873</td></tr>
+<tr><td>Chaetura_pelagica</td><td>0.49919</td><td>0.13355</td><td>0.00814</td><td>0.17561</td><td>0.75122</td><td>205</td><td>615</td></tr>
+<tr><td>Bombina_bombina</td><td>0.44405</td><td>0.08223</td><td>0.01769</td><td>0.10954</td><td>0.7821</td><td>283</td><td>849</td></tr>
+<tr><td>Zonotrichia_leucophrys_gambelii</td><td>0.5165</td><td>0.07489</td><td>0.01595</td><td>0.12628</td><td>0.7099</td><td>293</td><td>879</td></tr>
+<tr><td>Fukomys_damarensis</td><td>0.49255</td><td>0.0186</td><td>0.02064</td><td>0.13402</td><td>0.76518</td><td>291</td><td>873</td></tr>
+<tr><td>Sus_scrofa</td><td>0.54748</td><td>-0.05133</td><td>0.03977</td><td>0.11337</td><td>0.71512</td><td>344</td><td>1032</td></tr>
+<tr><td>Buceros_rhinoceros_silvestris</td><td>0.48999</td><td>0.06731</td><td>0.01887</td><td>0.12367</td><td>0.68787</td><td>283</td><td>849</td></tr>
+<tr><td>Caretta_caretta</td><td>0.47073</td><td>0.05584</td><td>0.01794</td><td>0.08602</td><td>0.71446</td><td>279</td><td>837</td></tr>
+<tr><td>Pterocles_gutturalis</td><td>0.48645</td><td>0.06538</td><td>0.02005</td><td>0.12367</td><td>0.70789</td><td>283</td><td>849</td></tr>
+<tr><td>Lepus_europaeus</td><td>0.52843</td><td>-0.00422</td><td>0.03237</td><td>0.13378</td><td>0.7369</td><td>299</td><td>897</td></tr>
+<tr><td>Eubalaena_glacialis</td><td>0.52833</td><td>-0.02244</td><td>0.03034</td><td>0.10672</td><td>0.70883</td><td>253</td><td>759</td></tr>
+<tr><td>Poecile_atricapillus</td><td>0.48822</td><td>0.04368</td><td>0.01573</td><td>0.15488</td><td>0.72278</td><td>297</td><td>891</td></tr>
+<tr><td>Nyctereutes_procyonoides</td><td>0.52083</td><td>-0.00889</td><td>0.03129</td><td>0.13542</td><td>0.6713</td><td>288</td><td>864</td></tr>
+<tr><td>Pteropus_alecto</td><td>0.46163</td><td>-0.01241</td><td>0.01261</td><td>0.13402</td><td>0.72852</td><td>291</td><td>873</td></tr>
+<tr><td>Caloenas_nicobarica</td><td>0.50803</td><td>0.01581</td><td>0.02814</td><td>0.13554</td><td>0.69478</td><td>332</td><td>996</td></tr>
+<tr><td>Papio_anubis</td><td>0.49247</td><td>0.03493</td><td>0.02368</td><td>0.14516</td><td>0.73978</td><td>310</td><td>930</td></tr>
+<tr><td>Mandrillus_leucophaeus</td><td>0.49599</td><td>0.01617</td><td>0.02179</td><td>0.15464</td><td>0.73883</td><td>291</td><td>873</td></tr>
+<tr><td>Cavia_porcellus</td><td>0.49772</td><td>-0.02294</td><td>0.01829</td><td>0.17466</td><td>0.72489</td><td>292</td><td>876</td></tr>
+<tr><td>Corvus_moneduloides</td><td>0.4924</td><td>0.04115</td><td>0.0142</td><td>0.05775</td><td>0.69402</td><td>329</td><td>987</td></tr>
+<tr><td>Rhinatrema_bivittatum</td><td>0.45433</td><td>0.06005</td><td>0.02019</td><td>0.09964</td><td>0.71649</td><td>281</td><td>843</td></tr>
+<tr><td>Gallus_gallus</td><td>0.4841</td><td>0.08516</td><td>0.02005</td><td>0.17314</td><td>0.77856</td><td>283</td><td>849</td></tr>
+<tr><td>Rissa_tridactyla</td><td>0.4947</td><td>0.07143</td><td>0.02476</td><td>0.15901</td><td>0.68433</td><td>283</td><td>849</td></tr>
+<tr><td>Mustela_nigripes</td><td>0.53623</td><td>-0.02703</td><td>0.03826</td><td>0.13043</td><td>0.69565</td><td>253</td><td>759</td></tr>
+<tr><td>Hipposideros_armiger</td><td>0.50172</td><td>-0.00913</td><td>0.02408</td><td>0.09622</td><td>0.71936</td><td>291</td><td>873</td></tr>
+<tr><td>Canis_lupus_familiaris</td><td>0.5162</td><td>0.00448</td><td>0.03013</td><td>0.13542</td><td>0.69213</td><td>288</td><td>864</td></tr>
+<tr><td>Ursus_maritimus</td><td>0.54154</td><td>-0.02033</td><td>0.04008</td><td>0.11712</td><td>0.72172</td><td>333</td><td>999</td></tr>
+<tr><td>Strigops_habroptila</td><td>0.48763</td><td>0.05314</td><td>0.01769</td><td>0.06714</td><td>0.73145</td><td>283</td><td>849</td></tr>
+<tr><td>Ovis_canadensis</td><td>0.53952</td><td>0.00637</td><td>0.03326</td><td>0.08935</td><td>0.72394</td><td>291</td><td>873</td></tr>
+<tr><td>Geospiza_fortis</td><td>0.50739</td><td>0.08969</td><td>0.01822</td><td>0.16724</td><td>0.72127</td><td>293</td><td>879</td></tr>
+<tr><td>Cervus_elaphus</td><td>0.5315</td><td>0.00862</td><td>0.03326</td><td>0.08935</td><td>0.70676</td><td>291</td><td>873</td></tr>
+<tr><td>Leopardus_geoffroyi</td><td>0.52692</td><td>-0.01739</td><td>0.03211</td><td>0.13746</td><td>0.69072</td><td>291</td><td>873</td></tr>
+<tr><td>Gopherus_evgoodei</td><td>0.47292</td><td>0.04835</td><td>0.01687</td><td>0.11191</td><td>0.69795</td><td>277</td><td>831</td></tr>
+<tr><td>Emys_orbicularis</td><td>0.46953</td><td>0.03817</td><td>0.01794</td><td>0.11111</td><td>0.70968</td><td>279</td><td>837</td></tr>
+<tr><td>Enhydra_lutris_kenyoni</td><td>0.5315</td><td>-0.00862</td><td>0.03555</td><td>0.15464</td><td>0.69072</td><td>291</td><td>873</td></tr>
+<tr><td>Leptosomus_discolor</td><td>0.5053</td><td>0.06294</td><td>0.02594</td><td>0.12721</td><td>0.6914</td><td>283</td><td>849</td></tr>
+<tr><td>Myiozetetes_cayanensis</td><td>0.49117</td><td>0.11271</td><td>0.01415</td><td>0.15194</td><td>0.69965</td><td>283</td><td>849</td></tr>
+<tr><td>Nanorana_parkeri</td><td>0.46761</td><td>0.01259</td><td>0.0283</td><td>0.15194</td><td>0.71025</td><td>283</td><td>849</td></tr>
+<tr><td>Cricetulus_griseus</td><td>0.50755</td><td>0.00686</td><td>0.02209</td><td>0.13589</td><td>0.75958</td><td>287</td><td>861</td></tr>
+<tr><td>Pezoporus_wallicus</td><td>0.4841</td><td>0.04623</td><td>0.01651</td><td>0.15548</td><td>0.72085</td><td>283</td><td>849</td></tr>
+<tr><td>Heterocephalus_glaber</td><td>0.47146</td><td>-0.01695</td><td>0.016</td><td>0.13356</td><td>0.78311</td><td>292</td><td>876</td></tr>
+<tr><td>Mustela_lutreola</td><td>0.54018</td><td>-0.03415</td><td>0.04222</td><td>0.13043</td><td>0.68248</td><td>253</td><td>759</td></tr>
+<tr><td>Callorhinus_ursinus</td><td>0.52936</td><td>-0.02447</td><td>0.03544</td><td>0.06995</td><td>0.70207</td><td>386</td><td>1158</td></tr>
+<tr><td>Hirundo_rustica</td><td>0.51119</td><td>0.10599</td><td>0.02358</td><td>0.11307</td><td>0.68316</td><td>283</td><td>849</td></tr>
+<tr><td>Chelonoidis_abingdonii</td><td>0.47653</td><td>0.05051</td><td>0.01928</td><td>0.11191</td><td>0.69795</td><td>277</td><td>831</td></tr>
+<tr><td>Myodes_glareolus</td><td>0.53194</td><td>-0.02183</td><td>0.03605</td><td>0.13937</td><td>0.74797</td><td>287</td><td>861</td></tr>
+<tr><td>Tympanuchus_pallidicinctus</td><td>0.48057</td><td>0.07843</td><td>0.02123</td><td>0.13074</td><td>0.77856</td><td>283</td><td>849</td></tr>
+<tr><td>Alexandromys_fortis</td><td>0.53775</td><td>-0.01944</td><td>0.03953</td><td>0.13937</td><td>0.73171</td><td>287</td><td>861</td></tr>
+<tr><td>Cyrtonyx_montezumae</td><td>0.49409</td><td>0.06699</td><td>0.01893</td><td>0.13475</td><td>0.77541</td><td>282</td><td>846</td></tr>
+<tr><td>Gavialis_gangeticus</td><td>0.4554</td><td>0.0567</td><td>0.01528</td><td>0.19718</td><td>0.723</td><td>284</td><td>852</td></tr>
+<tr><td>Microtus_oregoni</td><td>0.52962</td><td>-0.02632</td><td>0.03605</td><td>0.13937</td><td>0.75377</td><td>287</td><td>861</td></tr>
+<tr><td>Pyrgilauda_ruficollis</td><td>0.50059</td><td>0.06353</td><td>0.01533</td><td>0.13074</td><td>0.74205</td><td>283</td><td>849</td></tr>
+<tr><td>Ursus_arctos</td><td>0.53954</td><td>-0.02041</td><td>0.03908</td><td>0.11712</td><td>0.72973</td><td>333</td><td>999</td></tr>
+<tr><td>Puma_yagouaroundi</td><td>0.53036</td><td>-0.01944</td><td>0.03211</td><td>0.13746</td><td>0.70447</td><td>291</td><td>873</td></tr>
+<tr><td>Elephas_maximus_indicus</td><td>0.52986</td><td>-0.05328</td><td>0.03478</td><td>0.12704</td><td>0.79913</td><td>307</td><td>921</td></tr>
+<tr><td>Numida_meleagris</td><td>0.49916</td><td>0.10067</td><td>0.01678</td><td>0.1809</td><td>0.74539</td><td>199</td><td>597</td></tr>
+<tr><td>Cyanistes_caeruleus</td><td>0.5053</td><td>0.06294</td><td>0.01415</td><td>0.10954</td><td>0.69376</td><td>283</td><td>849</td></tr>
+<tr><td>Apaloderma_vittatum</td><td>0.49823</td><td>0.026</td><td>0.02358</td><td>0.16608</td><td>0.74912</td><td>283</td><td>849</td></tr>
+<tr><td>Anser_cygnoides</td><td>0.49352</td><td>0.07876</td><td>0.02476</td><td>0.19435</td><td>0.6808</td><td>283</td><td>849</td></tr>
+<tr><td>Agelaius_phoeniceus</td><td>0.50883</td><td>0.06944</td><td>0.01651</td><td>0.12721</td><td>0.72085</td><td>283</td><td>849</td></tr>
+<tr><td>Sorex_araneus</td><td>0.5315</td><td>-0.0431</td><td>0.04014</td><td>0.09278</td><td>0.78121</td><td>291</td><td>873</td></tr>
+<tr><td>Mesoplodon_densirostris</td><td>0.51788</td><td>-0.00223</td><td>0.02425</td><td>0.08997</td><td>0.67474</td><td>289</td><td>867</td></tr>
+<tr><td>Egretta_garzetta</td><td>0.49117</td><td>0.03597</td><td>0.02594</td><td>0.16608</td><td>0.68905</td><td>283</td><td>849</td></tr>
+<tr><td>Macaca_nemestrina</td><td>0.47939</td><td>0.0172</td><td>0.01887</td><td>0.14134</td><td>0.73734</td><td>283</td><td>849</td></tr>
+<tr><td>Meles_meles</td><td>0.53297</td><td>0.0</td><td>0.03526</td><td>0.12195</td><td>0.69106</td><td>369</td><td>1107</td></tr>
+<tr><td>Mauremys_mutica</td><td>0.47947</td><td>0.02771</td><td>0.02056</td><td>0.11232</td><td>0.69928</td><td>276</td><td>828</td></tr>
+<tr><td>Bos_javanicus</td><td>0.53837</td><td>0.00426</td><td>0.0367</td><td>0.08935</td><td>0.71363</td><td>291</td><td>873</td></tr>
+<tr><td>Chlamydotis_macqueenii</td><td>0.49823</td><td>0.04492</td><td>0.02241</td><td>0.12367</td><td>0.70082</td><td>283</td><td>849</td></tr>
+<tr><td>Molothrus_ater</td><td>0.51081</td><td>0.0735</td><td>0.01595</td><td>0.12287</td><td>0.73265</td><td>293</td><td>879</td></tr>
+<tr><td>Phalacrocorax_carbo</td><td>0.49352</td><td>0.05967</td><td>0.01533</td><td>0.12367</td><td>0.69611</td><td>283</td><td>849</td></tr>
+<tr><td>Mauremys_reevesii</td><td>0.47551</td><td>0.03015</td><td>0.02033</td><td>0.11111</td><td>0.69892</td><td>279</td><td>837</td></tr>
+<tr><td>Leptonychotes_weddellii</td><td>0.52474</td><td>0.01423</td><td>0.03364</td><td>0.10924</td><td>0.69748</td><td>357</td><td>1071</td></tr>
+<tr><td>Pan_paniscus</td><td>0.49141</td><td>0.00699</td><td>0.02408</td><td>0.13058</td><td>0.74685</td><td>291</td><td>873</td></tr>
+<tr><td>Psammomys_obesus</td><td>0.52729</td><td>0.00441</td><td>0.03953</td><td>0.09408</td><td>0.75261</td><td>287</td><td>861</td></tr>
+<tr><td>Vidua_chalybeata</td><td>0.49941</td><td>0.07547</td><td>0.01533</td><td>0.07067</td><td>0.71143</td><td>283</td><td>849</td></tr>
+<tr><td>Balaenoptera_musculus</td><td>0.5336</td><td>-0.04198</td><td>0.03166</td><td>0.10672</td><td>0.70487</td><td>253</td><td>759</td></tr>
+<tr><td>Aythya_fuligula</td><td>0.49588</td><td>0.06413</td><td>0.02358</td><td>0.10954</td><td>0.69376</td><td>283</td><td>849</td></tr>
+<tr><td>Equus_przewalskii</td><td>0.52321</td><td>-0.02903</td><td>0.02618</td><td>0.09873</td><td>0.75865</td><td>395</td><td>1185</td></tr>
+<tr><td>Vidua_macroura</td><td>0.50059</td><td>0.07765</td><td>0.01651</td><td>0.11307</td><td>0.71143</td><td>283</td><td>849</td></tr>
+<tr><td>Molothrus_aeneus</td><td>0.50967</td><td>0.07589</td><td>0.01481</td><td>0.12287</td><td>0.719</td><td>293</td><td>879</td></tr>
+<tr><td>Grammomys_surdaster</td><td>0.51336</td><td>0.02262</td><td>0.02791</td><td>0.09059</td><td>0.75145</td><td>287</td><td>861</td></tr>
+<tr><td>Melospiza_melodia_melodia</td><td>0.51991</td><td>0.05033</td><td>0.01481</td><td>0.11945</td><td>0.6917</td><td>293</td><td>879</td></tr>
+<tr><td>Zonotrichia_albicollis</td><td>0.5165</td><td>0.0793</td><td>0.01595</td><td>0.12628</td><td>0.72127</td><td>293</td><td>879</td></tr>
+<tr><td>Octodon_degus</td><td>0.49026</td><td>0.03271</td><td>0.01835</td><td>0.13402</td><td>0.75716</td><td>291</td><td>873</td></tr>
+<tr><td>Echinops_telfairi</td><td>0.54066</td><td>-0.0339</td><td>0.04243</td><td>0.15464</td><td>0.75143</td><td>291</td><td>873</td></tr>
+<tr><td>Vicugna_pacos</td><td>0.55907</td><td>-0.03774</td><td>0.04118</td><td>0.13608</td><td>0.7173</td><td>316</td><td>948</td></tr>
+<tr><td>Delphinus_delphis</td><td>0.53212</td><td>-0.0205</td><td>0.03034</td><td>0.09818</td><td>0.74182</td><td>275</td><td>825</td></tr>
+<tr><td>Ovis_aries</td><td>0.54639</td><td>0.01468</td><td>0.0344</td><td>0.08935</td><td>0.75143</td><td>291</td><td>873</td></tr>
+<tr><td>Balaenoptera_acutorostrata</td><td>0.52348</td><td>0.00656</td><td>0.02752</td><td>0.09278</td><td>0.67468</td><td>291</td><td>873</td></tr>
+<tr><td>Rhinolophus_ferrumequinum</td><td>0.50401</td><td>0.0</td><td>0.0195</td><td>0.09278</td><td>0.72279</td><td>291</td><td>873</td></tr>
+<tr><td>Parus_major</td><td>0.49957</td><td>0.0364</td><td>0.01127</td><td>0.08052</td><td>0.69004</td><td>385</td><td>1155</td></tr>
+<tr><td>Pelodiscus_sinensis</td><td>0.46922</td><td>0.0396</td><td>0.02209</td><td>0.15331</td><td>0.71777</td><td>287</td><td>861</td></tr>
+<tr><td>Globicephala_melas</td><td>0.53212</td><td>-0.0205</td><td>0.03034</td><td>0.09818</td><td>0.72364</td><td>275</td><td>825</td></tr>
+<tr><td>Pan_troglodytes</td><td>0.49026</td><td>0.00935</td><td>0.02408</td><td>0.13058</td><td>0.74227</td><td>291</td><td>873</td></tr>
+<tr><td>Phodopus_roborovskii</td><td>0.50407</td><td>0.01843</td><td>0.01977</td><td>0.14286</td><td>0.7259</td><td>287</td><td>861</td></tr>
+<tr><td>Peromyscus_eremicus</td><td>0.51712</td><td>-0.03311</td><td>0.03086</td><td>0.14726</td><td>0.74772</td><td>292</td><td>876</td></tr>
+<tr><td>Tauraco_erythrolophus</td><td>0.50059</td><td>0.03529</td><td>0.02358</td><td>0.17668</td><td>0.69022</td><td>283</td><td>849</td></tr>
+<tr><td>Haemorhous_mexicanus</td><td>0.51472</td><td>0.08009</td><td>0.01769</td><td>0.13781</td><td>0.70789</td><td>283</td><td>849</td></tr>
+<tr><td>Cebus_imitator</td><td>0.50286</td><td>0.01595</td><td>0.02294</td><td>0.08935</td><td>0.748</td><td>291</td><td>873</td></tr>
+<tr><td>Eulemur_rufifrons</td><td>0.52348</td><td>-0.00219</td><td>0.04014</td><td>0.09278</td><td>0.72967</td><td>291</td><td>873</td></tr>
+<tr><td>Suricata_suricatta</td><td>0.51852</td><td>-0.05042</td><td>0.02944</td><td>0.13072</td><td>0.69826</td><td>306</td><td>918</td></tr>
+</tbody></table>
+
+<h2>Pairwise metrics (top 80 shown)</h2>
+<p class="small">Full table: <a href="pairwise_metrics.csv">pairwise_metrics.csv</a></p>
+<table>
+<thead><tr>
+<th>seqA</th><th>seqB</th><th>AA id</th><th>AA cov</th><th>Longest block</th>
+<th>NT id</th><th>Ts</th><th>Tv</th><th>Ts/Tv</th>
+<th>Syn</th><th>NonSyn</th><th>Ambig</th>
+<th>Gap ev</th><th>Max gap cluster</th><th>Gap frac</th>
+<th>&lt;20% win</th><th>GC mean</th><th>|GC diff|</th>
+<th>mean LCR</th><th>mean repeats</th><th>Risk</th>
+</tr></thead><tbody>
+<tr><td>Rattus_norvegicus</td><td>Numida_meleagris</td><td>0.196</td><td>0.045</td><td>2</td><td>0.314</td><td>34</td><td>71</td><td>0.4789</td><td>5</td><td>4</td><td>38</td><td>9</td><td>623</td><td>0.955</td><td>1</td><td>0.511</td><td>0.024</td><td>0.315</td><td>0.736</td><td><span class='badge high'>HIGH</span></td></tr>
+<tr><td>Rattus_norvegicus</td><td>Chaetura_pelagica</td><td>0.240</td><td>0.044</td><td>2</td><td>0.333</td><td>39</td><td>61</td><td>0.6393</td><td>7</td><td>4</td><td>36</td><td>11</td><td>472</td><td>0.956</td><td>2</td><td>0.511</td><td>0.024</td><td>0.312</td><td>0.739</td><td><span class='badge high'>HIGH</span></td></tr>
+<tr><td>Rattus_norvegicus</td><td>Neopsephotus_bourkii</td><td>0.256</td><td>0.038</td><td>2</td><td>0.333</td><td>30</td><td>56</td><td>0.5357</td><td>5</td><td>2</td><td>32</td><td>7</td><td>613</td><td>0.962</td><td>2</td><td>0.508</td><td>0.030</td><td>0.224</td><td>0.751</td><td><span class='badge high'>HIGH</span></td></tr>
+<tr><td>Prinia_subflava</td><td>Macaca_nemestrina</td><td>0.258</td><td>0.184</td><td>3</td><td>0.391</td><td>138</td><td>244</td><td>0.5656</td><td>28</td><td>21</td><td>140</td><td>32</td><td>199</td><td>0.816</td><td>4</td><td>0.582</td><td>0.205</td><td>0.203</td><td>0.709</td><td><span class='badge high'>HIGH</span></td></tr>
+<tr><td>Rattus_norvegicus</td><td>Macaca_nemestrina</td><td>0.261</td><td>0.078</td><td>2</td><td>0.428</td><td>56</td><td>95</td><td>0.5895</td><td>12</td><td>14</td><td>51</td><td>18</td><td>274</td><td>0.922</td><td>3</td><td>0.501</td><td>0.044</td><td>0.295</td><td>0.732</td><td><span class='badge high'>HIGH</span></td></tr>
+<tr><td>Prinia_subflava</td><td>Chaetura_pelagica</td><td>0.281</td><td>0.141</td><td>3</td><td>0.375</td><td>112</td><td>188</td><td>0.5957</td><td>28</td><td>19</td><td>104</td><td>24</td><td>271</td><td>0.859</td><td>1</td><td>0.592</td><td>0.185</td><td>0.220</td><td>0.716</td><td><span class='badge high'>HIGH</span></td></tr>
+<tr><td>Prinia_subflava</td><td>Numida_meleagris</td><td>0.296</td><td>0.140</td><td>3</td><td>0.380</td><td>100</td><td>196</td><td>0.5102</td><td>28</td><td>12</td><td>107</td><td>21</td><td>623</td><td>0.860</td><td>1</td><td>0.592</td><td>0.185</td><td>0.222</td><td>0.713</td><td><span class='badge high'>HIGH</span></td></tr>
+<tr><td>Phacochoerus_africanus</td><td>Prinia_subflava</td><td>0.318</td><td>0.194</td><td>13</td><td>0.436</td><td>137</td><td>235</td><td>0.583</td><td>34</td><td>25</td><td>131</td><td>33</td><td>199</td><td>0.806</td><td>3</td><td>0.612</td><td>0.144</td><td>0.169</td><td>0.687</td><td><span class='badge high'>HIGH</span></td></tr>
+<tr><td>Prinia_subflava</td><td>Neopsephotus_bourkii</td><td>0.323</td><td>0.087</td><td>2</td><td>0.381</td><td>68</td><td>116</td><td>0.5862</td><td>19</td><td>4</td><td>69</td><td>18</td><td>412</td><td>0.913</td><td>0</td><td>0.589</td><td>0.191</td><td>0.132</td><td>0.729</td><td><span class='badge high'>HIGH</span></td></tr>
+<tr><td>Tinamus_guttatus</td><td>Rattus_norvegicus</td><td>0.324</td><td>0.093</td><td>15</td><td>0.460</td><td>68</td><td>102</td><td>0.6667</td><td>16</td><td>12</td><td>60</td><td>20</td><td>274</td><td>0.907</td><td>2</td><td>0.508</td><td>0.031</td><td>0.311</td><td>0.703</td><td><span class='badge high'>HIGH</span></td></tr>
+<tr><td>Cercocebus_atys</td><td>Prinia_subflava</td><td>0.330</td><td>0.174</td><td>13</td><td>0.411</td><td>129</td><td>219</td><td>0.589</td><td>35</td><td>16</td><td>120</td><td>24</td><td>625</td><td>0.826</td><td>3</td><td>0.570</td><td>0.228</td><td>0.241</td><td>0.723</td><td><span class='badge high'>HIGH</span></td></tr>
+<tr><td>Prinia_subflava</td><td>Sus_scrofa</td><td>0.335</td><td>0.190</td><td>13</td><td>0.445</td><td>131</td><td>227</td><td>0.5771</td><td>34</td><td>27</td><td>122</td><td>32</td><td>199</td><td>0.810</td><td>3</td><td>0.616</td><td>0.137</td><td>0.189</td><td>0.698</td><td><span class='badge high'>HIGH</span></td></tr>
+<tr><td>Piliocolobus_tephrosceles</td><td>Prinia_subflava</td><td>0.337</td><td>0.160</td><td>13</td><td>0.435</td><td>118</td><td>189</td><td>0.6243</td><td>28</td><td>17</td><td>109</td><td>20</td><td>672</td><td>0.840</td><td>3</td><td>0.592</td><td>0.184</td><td>0.181</td><td>0.724</td><td><span class='badge high'>HIGH</span></td></tr>
+<tr><td>Prinia_subflava</td><td>Rhinopithecus_roxellana</td><td>0.340</td><td>0.166</td><td>13</td><td>0.436</td><td>119</td><td>199</td><td>0.598</td><td>31</td><td>19</td><td>111</td><td>21</td><td>672</td><td>0.834</td><td>2</td><td>0.588</td><td>0.192</td><td>0.179</td><td>0.713</td><td><span class='badge high'>HIGH</span></td></tr>
+<tr><td>Hippopotamus_amphibius_kiboko</td><td>Prinia_subflava</td><td>0.341</td><td>0.158</td><td>13</td><td>0.451</td><td>106</td><td>189</td><td>0.5608</td><td>32</td><td>26</td><td>99</td><td>19</td><td>672</td><td>0.842</td><td>3</td><td>0.614</td><td>0.141</td><td>0.187</td><td>0.703</td><td><span class='badge high'>HIGH</span></td></tr>
+<tr><td>Prinia_subflava</td><td>Bubalus_kerabau</td><td>0.349</td><td>0.167</td><td>13</td><td>0.473</td><td>112</td><td>187</td><td>0.5989</td><td>30</td><td>29</td><td>99</td><td>22</td><td>625</td><td>0.833</td><td>3</td><td>0.615</td><td>0.139</td><td>0.183</td><td>0.712</td><td><span class='badge high'>HIGH</span></td></tr>
+<tr><td>Capricornis_sumatraensis</td><td>Prinia_subflava</td><td>0.360</td><td>0.167</td><td>13</td><td>0.478</td><td>108</td><td>188</td><td>0.5745</td><td>31</td><td>28</td><td>98</td><td>22</td><td>625</td><td>0.833</td><td>3</td><td>0.616</td><td>0.136</td><td>0.183</td><td>0.709</td><td><span class='badge high'>HIGH</span></td></tr>
+<tr><td>Oryx_dammah</td><td>Prinia_subflava</td><td>0.360</td><td>0.167</td><td>13</td><td>0.476</td><td>111</td><td>186</td><td>0.5968</td><td>31</td><td>28</td><td>98</td><td>22</td><td>625</td><td>0.833</td><td>3</td><td>0.615</td><td>0.137</td><td>0.183</td><td>0.708</td><td><span class='badge high'>HIGH</span></td></tr>
+<tr><td>Prinia_subflava</td><td>Budorcas_taxicolor</td><td>0.360</td><td>0.167</td><td>13</td><td>0.476</td><td>111</td><td>186</td><td>0.5968</td><td>32</td><td>29</td><td>97</td><td>22</td><td>625</td><td>0.833</td><td>3</td><td>0.617</td><td>0.135</td><td>0.183</td><td>0.711</td><td><span class='badge high'>HIGH</span></td></tr>
+<tr><td>Prinia_subflava</td><td>Rana_temporaria</td><td>0.361</td><td>0.188</td><td>13</td><td>0.440</td><td>136</td><td>222</td><td>0.6126</td><td>39</td><td>17</td><td>125</td><td>33</td><td>199</td><td>0.812</td><td>2</td><td>0.574</td><td>0.220</td><td>0.173</td><td>0.719</td><td><span class='badge high'>HIGH</span></td></tr>
+<tr><td>Dendropsophus_ebraccatus</td><td>Prinia_subflava</td><td>0.364</td><td>0.189</td><td>13</td><td>0.466</td><td>126</td><td>217</td><td>0.5806</td><td>36</td><td>25</td><td>117</td><td>33</td><td>199</td><td>0.811</td><td>2</td><td>0.586</td><td>0.196</td><td>0.165</td><td>0.727</td><td><span class='badge high'>HIGH</span></td></tr>
+<tr><td>Muntiacus_reevesi</td><td>Prinia_subflava</td><td>0.365</td><td>0.167</td><td>13</td><td>0.476</td><td>112</td><td>185</td><td>0.6054</td><td>33</td><td>30</td><td>95</td><td>22</td><td>625</td><td>0.833</td><td>3</td><td>0.612</td><td>0.144</td><td>0.183</td><td>0.710</td><td><span class='badge high'>HIGH</span></td></tr>
+<tr><td>Prinia_subflava</td><td>Dama_dama</td><td>0.365</td><td>0.167</td><td>13</td><td>0.473</td><td>112</td><td>187</td><td>0.5989</td><td>33</td><td>29</td><td>97</td><td>22</td><td>625</td><td>0.833</td><td>3</td><td>0.612</td><td>0.144</td><td>0.183</td><td>0.702</td><td><span class='badge high'>HIGH</span></td></tr>
+<tr><td>Spea_bombifrons</td><td>Prinia_subflava</td><td>0.366</td><td>0.191</td><td>13</td><td>0.449</td><td>124</td><td>233</td><td>0.5322</td><td>33</td><td>22</td><td>124</td><td>34</td><td>199</td><td>0.809</td><td>0</td><td>0.569</td><td>0.230</td><td>0.195</td><td>0.702</td><td><span class='badge high'>HIGH</span></td></tr>
+<tr><td>Orycteropus_afer_afer</td><td>Prinia_subflava</td><td>0.368</td><td>0.168</td><td>13</td><td>0.439</td><td>132</td><td>188</td><td>0.7021</td><td>40</td><td>19</td><td>107</td><td>22</td><td>625</td><td>0.832</td><td>2</td><td>0.585</td><td>0.198</td><td>0.183</td><td>0.720</td><td><span class='badge high'>HIGH</span></td></tr>
+<tr><td>Prinia_subflava</td><td>Loxodonta_africana</td><td>0.370</td><td>0.167</td><td>13</td><td>0.443</td><td>125</td><td>191</td><td>0.6545</td><td>35</td><td>17</td><td>110</td><td>22</td><td>625</td><td>0.833</td><td>2</td><td>0.600</td><td>0.168</td><td>0.185</td><td>0.734</td><td><span class='badge high'>HIGH</span></td></tr>
+<tr><td>Prinia_subflava</td><td>Eubalaena_glacialis</td><td>0.370</td><td>0.167</td><td>13</td><td>0.460</td><td>118</td><td>188</td><td>0.6277</td><td>35</td><td>22</td><td>104</td><td>22</td><td>625</td><td>0.833</td><td>3</td><td>0.606</td><td>0.156</td><td>0.185</td><td>0.695</td><td><span class='badge high'>HIGH</span></td></tr>
+<tr><td>Prinia_subflava</td><td>Mustela_nigripes</td><td>0.370</td><td>0.167</td><td>13</td><td>0.457</td><td>123</td><td>185</td><td>0.6649</td><td>36</td><td>19</td><td>106</td><td>22</td><td>625</td><td>0.833</td><td>2</td><td>0.610</td><td>0.148</td><td>0.197</td><td>0.688</td><td><span class='badge high'>HIGH</span></td></tr>
+<tr><td>Prinia_subflava</td><td>Mustela_lutreola</td><td>0.370</td><td>0.167</td><td>13</td><td>0.457</td><td>123</td><td>185</td><td>0.6649</td><td>35</td><td>18</td><td>107</td><td>22</td><td>625</td><td>0.833</td><td>2</td><td>0.612</td><td>0.144</td><td>0.197</td><td>0.682</td><td><span class='badge high'>HIGH</span></td></tr>
+<tr><td>Prinia_subflava</td><td>Balaenoptera_musculus</td><td>0.370</td><td>0.167</td><td>13</td><td>0.460</td><td>114</td><td>192</td><td>0.5938</td><td>36</td><td>24</td><td>101</td><td>22</td><td>625</td><td>0.833</td><td>3</td><td>0.609</td><td>0.150</td><td>0.185</td><td>0.693</td><td><span class='badge high'>HIGH</span></td></tr>
+<tr><td>Hyla_sarda</td><td>Prinia_subflava</td><td>0.371</td><td>0.188</td><td>6</td><td>0.463</td><td>125</td><td>218</td><td>0.5734</td><td>32</td><td>20</td><td>120</td><td>33</td><td>199</td><td>0.812</td><td>2</td><td>0.575</td><td>0.218</td><td>0.163</td><td>0.727</td><td><span class='badge high'>HIGH</span></td></tr>
+<tr><td>Tinamus_guttatus</td><td>Prinia_subflava</td><td>0.372</td><td>0.192</td><td>22</td><td>0.471</td><td>127</td><td>219</td><td>0.5799</td><td>43</td><td>28</td><td>115</td><td>34</td><td>199</td><td>0.808</td><td>1</td><td>0.588</td><td>0.192</td><td>0.219</td><td>0.681</td><td><span class='badge high'>HIGH</span></td></tr>
+<tr><td>Ranitomeya_imitator</td><td>Prinia_subflava</td><td>0.372</td><td>0.190</td><td>13</td><td>0.462</td><td>126</td><td>221</td><td>0.5701</td><td>31</td><td>20</td><td>122</td><td>33</td><td>199</td><td>0.810</td><td>2</td><td>0.581</td><td>0.206</td><td>0.163</td><td>0.714</td><td><span class='badge high'>HIGH</span></td></tr>
+<tr><td>Pelobates_fuscus</td><td>Prinia_subflava</td><td>0.372</td><td>0.190</td><td>13</td><td>0.445</td><td>136</td><td>222</td><td>0.6126</td><td>41</td><td>18</td><td>123</td><td>34</td><td>199</td><td>0.810</td><td>0</td><td>0.561</td><td>0.245</td><td>0.197</td><td>0.715</td><td><span class='badge high'>HIGH</span></td></tr>
+<tr><td>Prinia_subflava</td><td>Phocoena_phocoena</td><td>0.372</td><td>0.152</td><td>13</td><td>0.454</td><td>108</td><td>174</td><td>0.6207</td><td>35</td><td>20</td><td>93</td><td>21</td><td>625</td><td>0.848</td><td>2</td><td>0.611</td><td>0.146</td><td>0.185</td><td>0.694</td><td><span class='badge high'>HIGH</span></td></tr>
+<tr><td>Prinia_subflava</td><td>Eleutherodactylus_coqui</td><td>0.372</td><td>0.190</td><td>13</td><td>0.479</td><td>117</td><td>219</td><td>0.5342</td><td>29</td><td>24</td><td>118</td><td>33</td><td>199</td><td>0.810</td><td>2</td><td>0.577</td><td>0.215</td><td>0.164</td><td>0.704</td><td><span class='badge high'>HIGH</span></td></tr>
+<tr><td>Prinia_subflava</td><td>Nanorana_parkeri</td><td>0.374</td><td>0.189</td><td>13</td><td>0.446</td><td>137</td><td>219</td><td>0.6256</td><td>43</td><td>17</td><td>122</td><td>33</td><td>199</td><td>0.811</td><td>2</td><td>0.576</td><td>0.216</td><td>0.208</td><td>0.696</td><td><span class='badge high'>HIGH</span></td></tr>
+<tr><td>Microcaecilia_unicolor</td><td>Prinia_subflava</td><td>0.375</td><td>0.191</td><td>6</td><td>0.471</td><td>131</td><td>212</td><td>0.6179</td><td>43</td><td>28</td><td>112</td><td>34</td><td>199</td><td>0.809</td><td>2</td><td>0.569</td><td>0.230</td><td>0.166</td><td>0.703</td><td><span class='badge high'>HIGH</span></td></tr>
+<tr><td>Prinia_subflava</td><td>Chrysochloris_asiatica</td><td>0.376</td><td>0.167</td><td>13</td><td>0.446</td><td>124</td><td>190</td><td>0.6526</td><td>33</td><td>16</td><td>110</td><td>22</td><td>625</td><td>0.833</td><td>0</td><td>0.586</td><td>0.197</td><td>0.183</td><td>0.742</td><td><span class='badge high'>HIGH</span></td></tr>
+<tr><td>Prinia_subflava</td><td>Geotrypetes_seraphini</td><td>0.378</td><td>0.192</td><td>6</td><td>0.462</td><td>134</td><td>216</td><td>0.6204</td><td>45</td><td>25</td><td>115</td><td>34</td><td>199</td><td>0.808</td><td>2</td><td>0.558</td><td>0.253</td><td>0.162</td><td>0.715</td><td><span class='badge high'>HIGH</span></td></tr>
+<tr><td>Prinia_subflava</td><td>Papio_anubis</td><td>0.378</td><td>0.196</td><td>13</td><td>0.466</td><td>140</td><td>216</td><td>0.6481</td><td>43</td><td>21</td><td>122</td><td>32</td><td>199</td><td>0.804</td><td>2</td><td>0.588</td><td>0.192</td><td>0.204</td><td>0.710</td><td><span class='badge high'>HIGH</span></td></tr>
+<tr><td>Prinia_subflava</td><td>Peromyscus_eremicus</td><td>0.380</td><td>0.191</td><td>13</td><td>0.466</td><td>122</td><td>224</td><td>0.5446</td><td>40</td><td>28</td><td>114</td><td>31</td><td>199</td><td>0.809</td><td>0</td><td>0.601</td><td>0.167</td><td>0.206</td><td>0.714</td><td><span class='badge high'>HIGH</span></td></tr>
+<tr><td>Sciurus_carolinensis</td><td>Prinia_subflava</td><td>0.381</td><td>0.200</td><td>13</td><td>0.469</td><td>141</td><td>219</td><td>0.6438</td><td>44</td><td>27</td><td>119</td><td>33</td><td>199</td><td>0.800</td><td>2</td><td>0.594</td><td>0.180</td><td>0.187</td><td>0.710</td><td><span class='badge high'>HIGH</span></td></tr>
+<tr><td>Callithrix_jacchus</td><td>Prinia_subflava</td><td>0.382</td><td>0.194</td><td>13</td><td>0.471</td><td>137</td><td>212</td><td>0.6462</td><td>43</td><td>21</td><td>121</td><td>32</td><td>199</td><td>0.806</td><td>2</td><td>0.597</td><td>0.174</td><td>0.197</td><td>0.716</td><td><span class='badge high'>HIGH</span></td></tr>
+<tr><td>Pongo_abelii</td><td>Prinia_subflava</td><td>0.382</td><td>0.194</td><td>7</td><td>0.476</td><td>140</td><td>206</td><td>0.6796</td><td>44</td><td>24</td><td>117</td><td>32</td><td>199</td><td>0.806</td><td>2</td><td>0.584</td><td>0.200</td><td>0.197</td><td>0.721</td><td><span class='badge high'>HIGH</span></td></tr>
+<tr><td>Prinia_subflava</td><td>Hyperolius_riggenbachi</td><td>0.383</td><td>0.189</td><td>13</td><td>0.472</td><td>129</td><td>210</td><td>0.6143</td><td>43</td><td>28</td><td>111</td><td>33</td><td>199</td><td>0.811</td><td>2</td><td>0.595</td><td>0.178</td><td>0.191</td><td>0.711</td><td><span class='badge high'>HIGH</span></td></tr>
+<tr><td>Phacochoerus_africanus</td><td>Rattus_norvegicus</td><td>0.384</td><td>0.087</td><td>18</td><td>0.488</td><td>60</td><td>92</td><td>0.6522</td><td>15</td><td>11</td><td>52</td><td>18</td><td>359</td><td>0.913</td><td>1</td><td>0.532</td><td>0.017</td><td>0.262</td><td>0.709</td><td><span class='badge high'>HIGH</span></td></tr>
+<tr><td>Pongo_pygmaeus</td><td>Prinia_subflava</td><td>0.386</td><td>0.194</td><td>13</td><td>0.479</td><td>138</td><td>206</td><td>0.6699</td><td>44</td><td>23</td><td>117</td><td>32</td><td>199</td><td>0.806</td><td>2</td><td>0.585</td><td>0.198</td><td>0.197</td><td>0.721</td><td><span class='badge high'>HIGH</span></td></tr>
+<tr><td>Prinia_subflava</td><td>Bison_bison_bison</td><td>0.386</td><td>0.194</td><td>13</td><td>0.504</td><td>123</td><td>204</td><td>0.6029</td><td>40</td><td>35</td><td>105</td><td>32</td><td>199</td><td>0.806</td><td>3</td><td>0.610</td><td>0.148</td><td>0.177</td><td>0.696</td><td><span class='badge high'>HIGH</span></td></tr>
+<tr><td>Prinia_subflava</td><td>Eumetopias_jubatus</td><td>0.386</td><td>0.194</td><td>11</td><td>0.483</td><td>133</td><td>208</td><td>0.6394</td><td>40</td><td>26</td><td>116</td><td>33</td><td>199</td><td>0.806</td><td>2</td><td>0.607</td><td>0.155</td><td>0.184</td><td>0.701</td><td><span class='badge high'>HIGH</span></td></tr>
+<tr><td>Rattus_norvegicus</td><td>Chamaea_fasciata</td><td>0.387</td><td>0.094</td><td>7</td><td>0.506</td><td>72</td><td>85</td><td>0.8471</td><td>25</td><td>15</td><td>50</td><td>20</td><td>274</td><td>0.906</td><td>2</td><td>0.510</td><td>0.026</td><td>0.287</td><td>0.735</td><td><span class='badge high'>HIGH</span></td></tr>
+<tr><td>Prinia_subflava</td><td>Xenopus_tropicalis</td><td>0.388</td><td>0.189</td><td>13</td><td>0.442</td><td>132</td><td>226</td><td>0.5841</td><td>45</td><td>13</td><td>123</td><td>34</td><td>199</td><td>0.811</td><td>0</td><td>0.583</td><td>0.201</td><td>0.174</td><td>0.719</td><td><span class='badge high'>HIGH</span></td></tr>
+<tr><td>Gracilinanus_agilis</td><td>Prinia_subflava</td><td>0.388</td><td>0.193</td><td>13</td><td>0.451</td><td>145</td><td>216</td><td>0.6713</td><td>44</td><td>18</td><td>123</td><td>31</td><td>199</td><td>0.807</td><td>0</td><td>0.568</td><td>0.231</td><td>0.156</td><td>0.719</td><td><span class='badge high'>HIGH</span></td></tr>
+<tr><td>Carlito_syrichta</td><td>Prinia_subflava</td><td>0.389</td><td>0.218</td><td>13</td><td>0.466</td><td>165</td><td>231</td><td>0.7143</td><td>50</td><td>27</td><td>133</td><td>36</td><td>199</td><td>0.782</td><td>0</td><td>0.593</td><td>0.183</td><td>0.191</td><td>0.706</td><td><span class='badge high'>HIGH</span></td></tr>
+<tr><td>Prinia_subflava</td><td>Rhinatrema_bivittatum</td><td>0.389</td><td>0.191</td><td>6</td><td>0.477</td><td>134</td><td>205</td><td>0.6537</td><td>44</td><td>27</td><td>111</td><td>34</td><td>199</td><td>0.809</td><td>2</td><td>0.569</td><td>0.230</td><td>0.182</td><td>0.699</td><td><span class='badge high'>HIGH</span></td></tr>
+<tr><td>Prinia_subflava</td><td>Lagenorhynchus_albirostris</td><td>0.389</td><td>0.179</td><td>9</td><td>0.483</td><td>120</td><td>195</td><td>0.6154</td><td>43</td><td>30</td><td>100</td><td>31</td><td>199</td><td>0.821</td><td>2</td><td>0.605</td><td>0.157</td><td>0.175</td><td>0.684</td><td><span class='badge high'>HIGH</span></td></tr>
+<tr><td>Peromyscus_maniculatus_bairdii</td><td>Prinia_subflava</td><td>0.390</td><td>0.192</td><td>13</td><td>0.482</td><td>124</td><td>215</td><td>0.5767</td><td>39</td><td>31</td><td>110</td><td>31</td><td>199</td><td>0.808</td><td>0</td><td>0.606</td><td>0.157</td><td>0.184</td><td>0.704</td><td><span class='badge high'>HIGH</span></td></tr>
+<tr><td>Onychomys_torridus</td><td>Prinia_subflava</td><td>0.390</td><td>0.192</td><td>13</td><td>0.480</td><td>125</td><td>215</td><td>0.5814</td><td>40</td><td>30</td><td>111</td><td>31</td><td>199</td><td>0.808</td><td>0</td><td>0.602</td><td>0.164</td><td>0.181</td><td>0.725</td><td><span class='badge high'>HIGH</span></td></tr>
+<tr><td>Mustela_putorius_furo</td><td>Prinia_subflava</td><td>0.390</td><td>0.197</td><td>13</td><td>0.475</td><td>138</td><td>213</td><td>0.6479</td><td>43</td><td>24</td><td>118</td><td>33</td><td>199</td><td>0.803</td><td>2</td><td>0.609</td><td>0.151</td><td>0.195</td><td>0.699</td><td><span class='badge high'>HIGH</span></td></tr>
+<tr><td>Ailuropoda_melanoleuca</td><td>Prinia_subflava</td><td>0.390</td><td>0.197</td><td>13</td><td>0.490</td><td>131</td><td>210</td><td>0.6238</td><td>40</td><td>27</td><td>116</td><td>33</td><td>199</td><td>0.803</td><td>2</td><td>0.606</td><td>0.157</td><td>0.183</td><td>0.717</td><td><span class='badge high'>HIGH</span></td></tr>
+<tr><td>Prinia_subflava</td><td>Hyaena_hyaena</td><td>0.390</td><td>0.197</td><td>13</td><td>0.478</td><td>137</td><td>212</td><td>0.6462</td><td>46</td><td>29</td><td>114</td><td>33</td><td>199</td><td>0.803</td><td>2</td><td>0.600</td><td>0.167</td><td>0.176</td><td>0.710</td><td><span class='badge high'>HIGH</span></td></tr>
+<tr><td>Macaca_fascicularis</td><td>Prinia_subflava</td><td>0.391</td><td>0.194</td><td>13</td><td>0.471</td><td>139</td><td>210</td><td>0.6619</td><td>43</td><td>19</td><td>121</td><td>32</td><td>199</td><td>0.806</td><td>2</td><td>0.588</td><td>0.191</td><td>0.190</td><td>0.708</td><td><span class='badge high'>HIGH</span></td></tr>
+<tr><td>Balaenoptera_ricei</td><td>Prinia_subflava</td><td>0.391</td><td>0.194</td><td>13</td><td>0.479</td><td>133</td><td>211</td><td>0.6303</td><td>45</td><td>29</td><td>112</td><td>32</td><td>199</td><td>0.806</td><td>4</td><td>0.604</td><td>0.159</td><td>0.178</td><td>0.678</td><td><span class='badge high'>HIGH</span></td></tr>
+<tr><td>Trichechus_manatus_latirostris</td><td>Prinia_subflava</td><td>0.391</td><td>0.194</td><td>13</td><td>0.486</td><td>135</td><td>204</td><td>0.6618</td><td>44</td><td>27</td><td>113</td><td>32</td><td>199</td><td>0.806</td><td>2</td><td>0.611</td><td>0.147</td><td>0.209</td><td>0.712</td><td><span class='badge high'>HIGH</span></td></tr>
+<tr><td>Bos_taurus</td><td>Prinia_subflava</td><td>0.391</td><td>0.194</td><td>13</td><td>0.503</td><td>124</td><td>204</td><td>0.6078</td><td>40</td><td>33</td><td>106</td><td>32</td><td>199</td><td>0.806</td><td>3</td><td>0.611</td><td>0.147</td><td>0.177</td><td>0.690</td><td><span class='badge high'>HIGH</span></td></tr>
+<tr><td>Bubalus_bubalis</td><td>Prinia_subflava</td><td>0.391</td><td>0.194</td><td>13</td><td>0.503</td><td>124</td><td>204</td><td>0.6078</td><td>40</td><td>34</td><td>105</td><td>32</td><td>199</td><td>0.806</td><td>3</td><td>0.612</td><td>0.143</td><td>0.177</td><td>0.694</td><td><span class='badge high'>HIGH</span></td></tr>
+<tr><td>Prinia_subflava</td><td>Alligator_sinensis</td><td>0.391</td><td>0.194</td><td>14</td><td>0.471</td><td>136</td><td>213</td><td>0.6385</td><td>45</td><td>21</td><td>119</td><td>34</td><td>199</td><td>0.806</td><td>2</td><td>0.564</td><td>0.240</td><td>0.204</td><td>0.693</td><td><span class='badge high'>HIGH</span></td></tr>
+<tr><td>Prinia_subflava</td><td>Chlorocebus_sabaeus</td><td>0.391</td><td>0.194</td><td>13</td><td>0.470</td><td>140</td><td>210</td><td>0.6667</td><td>43</td><td>21</td><td>119</td><td>32</td><td>199</td><td>0.806</td><td>2</td><td>0.591</td><td>0.186</td><td>0.209</td><td>0.716</td><td><span class='badge high'>HIGH</span></td></tr>
+<tr><td>Prinia_subflava</td><td>Aotus_nancymaae</td><td>0.391</td><td>0.194</td><td>13</td><td>0.485</td><td>134</td><td>206</td><td>0.6505</td><td>41</td><td>22</td><td>118</td><td>32</td><td>199</td><td>0.806</td><td>2</td><td>0.591</td><td>0.186</td><td>0.197</td><td>0.712</td><td><span class='badge high'>HIGH</span></td></tr>
+<tr><td>Prinia_subflava</td><td>Bos_indicus_x_Bos_taurus</td><td>0.391</td><td>0.194</td><td>13</td><td>0.503</td><td>124</td><td>204</td><td>0.6078</td><td>40</td><td>33</td><td>106</td><td>32</td><td>199</td><td>0.806</td><td>3</td><td>0.611</td><td>0.147</td><td>0.177</td><td>0.690</td><td><span class='badge high'>HIGH</span></td></tr>
+<tr><td>Prinia_subflava</td><td>Bos_mutus</td><td>0.391</td><td>0.194</td><td>13</td><td>0.504</td><td>123</td><td>204</td><td>0.6029</td><td>40</td><td>34</td><td>105</td><td>32</td><td>199</td><td>0.806</td><td>3</td><td>0.612</td><td>0.143</td><td>0.177</td><td>0.697</td><td><span class='badge high'>HIGH</span></td></tr>
+<tr><td>Prinia_subflava</td><td>Callorhinus_ursinus</td><td>0.391</td><td>0.194</td><td>13</td><td>0.488</td><td>132</td><td>206</td><td>0.6408</td><td>39</td><td>26</td><td>115</td><td>33</td><td>199</td><td>0.806</td><td>2</td><td>0.607</td><td>0.155</td><td>0.167</td><td>0.691</td><td><span class='badge high'>HIGH</span></td></tr>
+<tr><td>Prinia_subflava</td><td>Bos_javanicus</td><td>0.391</td><td>0.194</td><td>13</td><td>0.504</td><td>123</td><td>204</td><td>0.6029</td><td>40</td><td>34</td><td>105</td><td>32</td><td>199</td><td>0.806</td><td>3</td><td>0.611</td><td>0.146</td><td>0.177</td><td>0.697</td><td><span class='badge high'>HIGH</span></td></tr>
+<tr><td>Prinia_subflava</td><td>Echinops_telfairi</td><td>0.391</td><td>0.194</td><td>13</td><td>0.480</td><td>128</td><td>215</td><td>0.5953</td><td>41</td><td>22</td><td>117</td><td>32</td><td>199</td><td>0.806</td><td>2</td><td>0.612</td><td>0.143</td><td>0.209</td><td>0.716</td><td><span class='badge high'>HIGH</span></td></tr>
+<tr><td>Prinia_subflava</td><td>Ovis_aries</td><td>0.391</td><td>0.194</td><td>13</td><td>0.503</td><td>123</td><td>205</td><td>0.6</td><td>41</td><td>35</td><td>104</td><td>32</td><td>199</td><td>0.806</td><td>3</td><td>0.615</td><td>0.138</td><td>0.177</td><td>0.716</td><td><span class='badge high'>HIGH</span></td></tr>
+<tr><td>Prinia_subflava</td><td>Cebus_imitator</td><td>0.391</td><td>0.194</td><td>13</td><td>0.488</td><td>133</td><td>205</td><td>0.6488</td><td>41</td><td>26</td><td>114</td><td>32</td><td>199</td><td>0.806</td><td>2</td><td>0.593</td><td>0.181</td><td>0.177</td><td>0.714</td><td><span class='badge high'>HIGH</span></td></tr>
+<tr><td>Prinia_subflava</td><td>Alexandromys_fortis</td><td>0.392</td><td>0.192</td><td>13</td><td>0.487</td><td>127</td><td>207</td><td>0.6135</td><td>40</td><td>28</td><td>111</td><td>31</td><td>199</td><td>0.808</td><td>3</td><td>0.611</td><td>0.146</td><td>0.202</td><td>0.706</td><td><span class='badge high'>HIGH</span></td></tr>
+<tr><td>Prinia_subflava</td><td>Camelus_dromedarius</td><td>0.393</td><td>0.186</td><td>13</td><td>0.490</td><td>124</td><td>199</td><td>0.6231</td><td>42</td><td>30</td><td>106</td><td>29</td><td>199</td><td>0.814</td><td>2</td><td>0.614</td><td>0.140</td><td>0.180</td><td>0.698</td><td><span class='badge high'>HIGH</span></td></tr>
+<tr><td>Prinia_subflava</td><td>Bombina_bombina</td><td>0.394</td><td>0.191</td><td>15</td><td>0.429</td><td>140</td><td>230</td><td>0.6087</td><td>46</td><td>17</td><td>124</td><td>34</td><td>199</td><td>0.809</td><td>0</td><td>0.564</td><td>0.240</td><td>0.187</td><td>0.731</td><td><span class='badge high'>HIGH</span></td></tr>
+<tr><td>Mus_musculus</td><td>Prinia_subflava</td><td>0.395</td><td>0.192</td><td>13</td><td>0.482</td><td>126</td><td>213</td><td>0.5915</td><td>47</td><td>31</td><td>108</td><td>31</td><td>199</td><td>0.808</td><td>2</td><td>0.603</td><td>0.161</td><td>0.177</td><td>0.711</td><td><span class='badge high'>HIGH</span></td></tr>
+</tbody></table>
+<h2>Correlation checks</h2>
+<p class="small">Pearson and Spearman correlations (negative association means the composition feature increases as identity decreases).</p>
+<table>
+<thead><tr><th>X</th><th>Y</th><th>Pearson r</th><th>Pearson p</th><th>Spearman ?</th><th>Spearman p</th></tr></thead><tbody>
+<tr><td>AA identity</td><td>- |GC diff|</td><td>0.3153</td><td>0.e+00</td><td>0.2466</td><td>0.e+00</td></tr>
+<tr><td>AA identity</td><td>- mean LCR fraction</td><td>0.1182</td><td>3.98e-174</td><td>-0.0135</td><td>1.39e-03</td></tr>
+<tr><td>AA identity</td><td>- mean repeat fraction</td><td>-0.0683</td><td>3.29e-59</td><td>-0.0524</td><td>1.77e-35</td></tr>
+</tbody></table><div class='figure'><figure style='display:inline-block;margin:6px 8px;'><img loading='lazy' src='scatter_id_vs_gcDiff.png' alt='AA id vs |GC diff|' style='max-width:380px;width:100%'><figcaption class='small' style='text-align:center'>AA id vs |GC diff|</figcaption></figure><figure style='display:inline-block;margin:6px 8px;'><img loading='lazy' src='scatter_id_vs_LCR.png' alt='AA id vs mean LCR' style='max-width:380px;width:100%'><figcaption class='small' style='text-align:center'>AA id vs mean LCR</figcaption></figure><figure style='display:inline-block;margin:6px 8px;'><img loading='lazy' src='scatter_id_vs_repeats.png' alt='AA id vs repeats' style='max-width:380px;width:100%'><figcaption class='small' style='text-align:center'>AA id vs repeats</figcaption></figure></div><h2>Local divergence vs reference (Sciurus_carolinensis)</h2><h3>Sciurus_carolinensis vs Prinia_subflava</h3><div class='figure'><img loading='lazy' src='win_id_Sciurus_carolinensis_vs_Prinia_subflava.png' style='max-width:100%'></div><div class='figure'><img loading='lazy' src='win_indel_Sciurus_carolinensis_vs_Prinia_subflava.png' style='max-width:100%'></div><h3>Sciurus_carolinensis vs Rattus_norvegicus</h3><div class='figure'><img loading='lazy' src='win_id_Sciurus_carolinensis_vs_Rattus_norvegicus.png' style='max-width:100%'></div><div class='figure'><img loading='lazy' src='win_indel_Sciurus_carolinensis_vs_Rattus_norvegicus.png' style='max-width:100%'></div><h3>Sciurus_carolinensis vs Neopsephotus_bourkii</h3><div class='figure'><img loading='lazy' src='win_id_Sciurus_carolinensis_vs_Neopsephotus_bourkii.png' style='max-width:100%'></div><div class='figure'><img loading='lazy' src='win_indel_Sciurus_carolinensis_vs_Neopsephotus_bourkii.png' style='max-width:100%'></div><h3>Sciurus_carolinensis vs Pelobates_fuscus</h3><div class='figure'><img loading='lazy' src='win_id_Sciurus_carolinensis_vs_Pelobates_fuscus.png' style='max-width:100%'></div><div class='figure'><img loading='lazy' src='win_indel_Sciurus_carolinensis_vs_Pelobates_fuscus.png' style='max-width:100%'></div><h3>Sciurus_carolinensis vs Chamaea_fasciata</h3><div class='figure'><img loading='lazy' src='win_id_Sciurus_carolinensis_vs_Chamaea_fasciata.png' style='max-width:100%'></div><div class='figure'><img loading='lazy' src='win_indel_Sciurus_carolinensis_vs_Chamaea_fasciata.png' style='max-width:100%'></div><h3>Sciurus_carolinensis vs Haliaeetus_albicilla</h3><div class='figure'><img loading='lazy' src='win_id_Sciurus_carolinensis_vs_Haliaeetus_albicilla.png' style='max-width:100%'></div><div class='figure'><img loading='lazy' src='win_indel_Sciurus_carolinensis_vs_Haliaeetus_albicilla.png' style='max-width:100%'></div>
+<h2>Methods (brief)</h2>
+<ol>
+  <li>CDS are translated (genetic code 1); proteins aligned by MAFFT when available, otherwise a progressive global aligner (BLOSUM62). Protein MSA is back-translated into a codon MSA.</li>
+  <li>Pairwise metrics: AA/NT identities on aligned nongap positions; Ts/Tv; single-hit syn/nonsyn counts; gap events and largest contiguous gap cluster (codons); sliding-window AA identity and codon-level indel rate.</li>
+  <li>Per-sequence diagnostics: GC content/skew, CpG density, AA low-complexity fraction via SEG-like entropy windows (win=12, H&lt;2.2), and NT tandem repeats (homopolymers =5; di-nt =4 copies; tri-nt =3 copies).</li>
+  <li>Correlations: Pearson/Spearman between AA identity and |GC difference|, mean AA LCR fraction, and mean NT repeat fraction across pairs.</li>
+  <li>Risk classifier: combines identity, coverage, longest identical block, low-ID windows, max indel cluster, and up-ranks risk when mean LCR =0.25 or mean repeat =0.10 (soft-masking can remove seeds and reduce sensitivity).</li>
+</ol>
+
+<p class="small">Artifacts: <code>pairwise_metrics.csv</code>, <code>per_sequence_composition.csv</code>, <code>correlations.csv</code>, <code>alignment_protein.faa</code>, <code>alignment_codon.fna</code>.</p>
+</div></body></html>

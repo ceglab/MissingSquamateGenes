@@ -1,0 +1,10 @@
+Gene-wide BLAST-miss likelihood: INTERMEDIATE
+Gene score (0-100): 42.21
+Drivers:
+  tail_score_q90 (0-100): 80.52
+  share_high_pairs: 0.200
+  coverage_low_share: 0.000
+  aa_identity_tail_q10: 0.742
+  lcr_mean_over_pairs: 0.039
+  repeat_mean_over_pairs: 0.741
+  complexity_bump: 0.050

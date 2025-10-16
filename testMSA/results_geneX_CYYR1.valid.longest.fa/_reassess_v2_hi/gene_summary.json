@@ -1,0 +1,23 @@
+{
+  "gene_label": "intermediate",
+  "gene_score_0_100": 60.4,
+  "cutoffs": {
+    "pair_high_q": 0.25,
+    "pair_intermediate_q": 0.3,
+    "gene_low_cut": 40.0,
+    "gene_high_cut": 65.0
+  },
+  "pair_score_cutoffs_0_100": {
+    "q_high": 64.61756556787564,
+    "q_inter": 48.07887344783595
+  },
+  "drivers": {
+    "tail_score_q90": 72.88,
+    "share_high_pairs": 0.25,
+    "coverage_low_share": 1.0,
+    "aa_identity_tail_q10": 0.541,
+    "lcr_mean_over_pairs": 0.312,
+    "repeat_mean_over_pairs": 0.728,
+    "complexity_bump": 0.1
+  }
+}
