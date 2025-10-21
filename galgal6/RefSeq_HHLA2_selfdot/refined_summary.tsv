@@ -1,0 +1,10 @@
+metric	value
+total_merged_hits	31
+support_min_methods	2
+target_radius	25
+entropy_window	35
+min_entropy_threshold	1.2
+blastn_word_sizes	7,9,11
+blastn_evalues	1e2,1e-3
+tblastx_evalues	1e1,1e-3
+hmmer_enabled	1

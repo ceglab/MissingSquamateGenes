@@ -1,0 +1,15 @@
+metric	value
+hits:exon->CDS	4
+hits:exon->exon	7
+hits:exon->intron	114
+copies:exon_to_intron_total	86
+copies:exon_01_(2001-2189)	45
+copies:exon_02_(4574-5430)	41
+intron:total_raw_exon_to_intron_hits	103
+intron:total_clustered_copies	57
+intron_01_(1-2000):raw_hits	31
+intron_01_(1-2000):clustered_copies	17
+intron_02_(2190-4573):raw_hits	37
+intron_02_(2190-4573):clustered_copies	23
+intron_03_(5431-7430):raw_hits	35
+intron_03_(5431-7430):clustered_copies	17

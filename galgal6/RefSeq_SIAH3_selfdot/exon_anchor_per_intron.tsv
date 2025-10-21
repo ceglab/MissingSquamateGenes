@@ -1,0 +1,4 @@
+intron_index	start	end	length_bp	raw_exon_to_intron_hits	clustered_copies	contributing_exons
+1	1	2000	2000	1	1	2
+2	3671	38848	35178	34	34	1,2
+3	39630	41629	2000	1	1	2

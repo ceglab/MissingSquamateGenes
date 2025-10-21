@@ -1,0 +1,14 @@
+exon_index	sstart	send	length	bitscore	evalue	evidence
+	-1	-1	0	78.5	5.3e-25	phmmer:f0
+	-1	-1	0	72.5	4.1e-23	phmmer:f0
+	-1	-1	0	83.2	7.7e-26	phmmer:f0
+	-1	-1	0	36.0	5.1e-11	phmmer:f0
+	-1	-1	0	55.1	6.2e-18	phmmer:f0
+	-1	-1	0	35.5	2e-11	phmmer:f0
+	-1	-1	0	19.9	1.3e-06	phmmer:f0
+	-1	-1	0	54.8	2.6e-17	phmmer:f0
+	-1	-1	0	42.7	5.5e-14	phmmer:f0
+	-1	-1	0	72.7	1.9e-22	phmmer:f0
+	-1	-1	0	48.9	5.5e-15	phmmer:f0
+	-1	-1	0	56.1	6.4e-18	phmmer:f0
+	-1	-1	0	125.7	2.1e-39	phmmer:f0

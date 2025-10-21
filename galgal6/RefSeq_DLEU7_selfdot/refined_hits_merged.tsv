@@ -1,0 +1,6 @@
+exon_index	sstart	send	pident	length	bitscore	evalue	methods	subject_mid
+1	2002	2242	100.0	242	362.0	2.03e-103	blastn,tblastx	2121.5
+1	2652	2590	67.857	84	25.1	0.071	blastn,tblastx	2621.25
+1	9727	9784	72.222	36	17.7	2.3	blastn,tblastx	9767.0
+2	9912	9913	100.0	584	870.0	0.0	blastn,tblastx	9913.5
+2	10010	10023	75.758	66	40.0	6.17e-06	blastn,tblastx	10010.5

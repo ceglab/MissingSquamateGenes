@@ -1,0 +1,7 @@
+intron_index	start	end	length_bp	raw_exon_to_intron_hits	contributing_exons
+1	1	2000	2000	1	2
+2	2165	4015	1851	2	2
+3	4115	6059	1945	1	4
+4	6098	6602	505	2	2
+5	6697	8137	1441	0	-
+6	8779	10778	2000	0	-

@@ -1,0 +1,21 @@
+# Gene region and annotation
+chrom: NC_006091.5
+strand: +
+gene_start: 81141855
+gene_end: 81149771
+flank_bp: 2000
+extracted_region: 81139855-81151771 (length 11917 bp)
+
+Exons (genome) -> (relative):
+  81141855-81143539 -> 2001-3685
+  81143921-81144034 -> 4067-4180
+  81147726-81149771 -> 7872-9917
+
+CDS (genome) -> (relative):
+  81142872-81143539 -> 3018-3685
+  81143921-81144034 -> 4067-4180
+  81147726-81147960 -> 7872-8106
+
+UTR (relative only):
+  2001-3017
+  8107-9917
